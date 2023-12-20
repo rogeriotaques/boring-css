@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+
+    <title>The Boring CSS - Docs</title>
+
+    <link rel="stylesheet" href="boring.css" />
+    <link rel="stylesheet" href="page.css" />
+  </head>
+  <body>
+    <main class="container" style="max-width: 640px">
+      <article class="hero">
+        <h1 class="title">The Boring CSS</h1>
+        <p class="subtitle">
+          A <a href="https://getbem.com/" target="_blank" rel="noopener noreferrer">BEM</a> based set of classes to
+          style your pages in an authentic way.
+        </p>
+      </article>
+
+      <article class="intro">
+        <h2>What is it?</h2>
+        <p>
+          Just another boring, and opinionated, CSS styling library, by
+          <a href="https://twitter.com/rogeriotaques" target="_blank" rel="noopener noreferrer">Rogério Taques</a>.
+        </p>
+        <p>
+          It's not a framework, does not have a grid system, and it has a very limited number of components. But it is
+          still very cool 😎 and helps you building visually attractive UIs for your website or web application with
+          peace of mind.
+        </p>
+
+        <h3>Dark mode ready</h3>
+        <p>Yes! It supports dark mode already! 🎉</p>
+        <p>You just need to add <code>data-mode="dark"</code> in the <code>&lt;html /&gt;</code> tag.</p>
+      </article>
+
+      <article class="components">
+        <h2>Components</h2>
+
+        <section id="badges">
+          <h3>Badge</h3>
+
+          <div>
+            <span class="badge">Badge</span>
+            <span class="badge badge--success">Badge</span>
+            <span class="badge badge--warning">Badge</span>
+            <span class="badge badge--danger">Badge</span>
+            <span class="badge badge--dark">Badge</span>
+          </div>
+        </section>
+
+        <section id="boxes">
+          <h3>Box</h3>
+
+          <div class="box">
+            <p>This is a box block.</p>
+            <p>A box is a container for any kind of content.</p>
+          </div>
+        </section>
+
+        <section id="buttons">
+          <h3>Buttons</h3>
+
+          <button type="button">Button</button>
+          <button type="submit">Submit</button>
+          <button type="reset">Reset</button>
+          <a href="#" class="button">Link Button</a>
+          <button disabled>Disabled</button>
+          <a href="#" class="button button--disabled">Link Button</a>
+        </section>
+
+        <section id="cards">
+          <h3>Card</h3>
+
+          <div class="card">
+            <div class="card__header">
+              <h3>This is a card header.</h3>
+            </div>
+            <div class="card__body">
+              <p>A card is like a box, but it can be made with a <b>header</b> + <b>footer</b>, both optional.</p>
+            </div>
+            <div class="card__footer">
+              <a href="#" class="card__link">Link</a>
+              <a href="#" class="card__link">Link</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="inputs">
+          <h3>Inputs</h3>
+
+          <div class="input">
+            <input type="text" placeholder="Text Input" />
+          </div>
+
+          <!-- Success -->
+          <div class="input input--success">
+            <input type="text" placeholder="Success Text Input" />
+          </div>
+
+          <!-- Warning -->
+          <div class="input input--warning">
+            <input type="text" placeholder="Warning Text Input" />
+          </div>
+
+          <!-- Error -->
+          <div class="input input--error">
+            <input type="text" placeholder="Error Text Input" />
+          </div>
+
+          <!-- Select -->
+          <div class="input">
+            <select>
+              <option value="">Select</option>
+            </select>
+          </div>
+
+          <!-- Textarea -->
+          <div class="input">
+            <textarea class="input" placeholder="Textarea"></textarea>
+          </div>
+
+          <br />
+
+          <h4>Check boxes and radios</h4>
+
+          <!-- Checkbox -->
+          <div class="input input--checkbox">
+            <input type="checkbox" id="checkbox_1" checked />
+            <label for="checkbox_1">Checkbox checked</label>
+          </div>
+
+          <div class="input input--checkbox">
+            <input type="checkbox" id="checkbox_2" />
+            <label for="checkbox_2">Checkbox</label>
+          </div>
+
+          <!-- Radio button -->
+          <div class="input input--radio">
+            <input type="radio" name="radio" id="radio_1" checked />
+            <label for="radio_1">Radio checked</label>
+          </div>
+
+          <div class="input input--radio">
+            <input type="radio" name="radio" id="radio_2" />
+            <label for="radio_2">Radio</label>
+          </div>
+
+          <br />
+
+          <h4>With label</h4>
+
+          <!-- With add-ons -->
+          <div class="input input--with-helpers">
+            <label for="input">Name</label>
+            <input type="text" id="input" placeholder="Text Input" />
+          </div>
+
+          <br />
+
+          <h4>With helpers</h4>
+
+          <!-- With helpers -->
+          <div class="input input--with-helpers">
+            <input type="text" placeholder="Text Input" />
+            <p class="input__helper">This is a helper text.</p>
+          </div>
+
+          <br />
+
+          <h4>With add-ons</h4>
+
+          <!-- With add-ons -->
+          <div class="input input--with-addons">
+            <p class="input__addon">https://</p>
+            <input type="text" placeholder="Text Input" />
+          </div>
+
+          <div class="input input--with-addons">
+            <input type="text" placeholder="Text Input" />
+            <p class="input__addon">@gmail.com</p>
+          </div>
+
+          <div class="input input--with-addons">
+            <input type="text" placeholder="Text Input" />
+            <select class="input__addon">
+              <option value="">Select</option>
+            </select>
+          </div>
+
+          <br />
+
+          <h4>Grouped</h4>
+
+          <!-- Grouped inputs -->
+          <div class="input input--grouped">
+            <input type="text" placeholder="Text Input" />
+            <input type="text" placeholder="Text Input" />
+          </div>
+
+          <div class="input input--grouped">
+            <input type="text" placeholder="Text Input" />
+            <input type="text" placeholder="Text Input" />
+            <input type="text" placeholder="Text Input" />
+          </div>
+        </section>
+
+        <section id="notifications">
+          <h3>Notifications</h3>
+
+          <div class="notification">This is a notification block.</div>
+          <div class="notification notification--success">This is a success notification block.</div>
+          <div class="notification notification--warning">This is a warning notification block.</div>
+          <div class="notification notification--error">This is an error notification block.</div>
+        </section>
+
+        <section id="pre">
+          <h3>Code</h3>
+
+          <p>
+            <code>This is how the content of a &lt;code /&gt; tag looks like.</code>
+          </p>
+
+          <h3>Pre</h3>
+
+          <pre>
+&lt;pre&gt;
+  &lt;!-- Code here --&gt;
+&lt;/pre&gt;</pre
+          >
+        </section>
+
+        <section id="progress">
+          <h3>Progress</h3>
+
+          E.g. <code>&lt;div class="progress progress--75" /&gt;</code>
+          <div class="progress progress--75">75%</div>
+
+          <br /><br />
+
+          E.g. <code>&lt;div class="progress progress--infinite" /&gt;</code>
+          <div class="progress progress--infinite"></div>
+        </section>
+
+        <section id="tooltips">
+          <h3>Tooltip</h3>
+
+          <p>Hover over the texts below to see the tooltips in action!</p>
+
+          <br />
+          <br />
+          <br />
+
+          <div style="text-align: center">
+            <div style="width: auto; display: inline-block; padding: 16px; margin-right: 16px">
+              <p style="cursor: pointer" class="has-tooltip has-tooltip--left" data-tooltip="Show on the left">Left</p>
+            </div>
+            <div style="width: auto; display: inline-block; padding: 16px; margin-right: 16px">
+              <p style="cursor: pointer" class="has-tooltip has-tooltip--top" data-tooltip="Show on top">Top</p>
+            </div>
+            <div style="width: auto; display: inline-block; padding: 16px; margin-right: 16px">
+              <p style="cursor: pointer" class="has-tooltip has-tooltip--bottom" data-tooltip="Show at bottom">
+                Bottom
+              </p>
+            </div>
+            <div style="width: auto; display: inline-block; padding: 16px">
+              <p style="cursor: pointer" class="has-tooltip has-tooltip--right" data-tooltip="Show on the right">
+                Right
+              </p>
+            </div>
+          </div>
+
+          <br />
+          <br />
+          <br />
+
+          <p>To add tooltips, use 👇</p>
+
+          <pre>
+&lt;p 
+  class="has-tooltip has-tooltip--left" 
+  data-tooltip="This is the message to be shown on the tooltip"
+&gt; ... &lt;/p&gt;
+          </pre>
+        </section>
+      </article>
+
+      <article class="javascript">
+        <h2>Javascript</h2>
+        <p>
+          Although you are not required to use Javascript with <b>Boring CSS</b>, you might want to use it to enhance
+          the user experience of your website or web application, for example to give users the ability to change the
+          color theme, or open/close a modal, etc.
+        </p>
+
+        <section class="javascript-theme-change">
+          <h3>Light-Dark mode change</h3>
+          <p>
+            The simple Javascript code below toggles the <code>data-mode</code> attribute of the
+            <code>&lt;html /&gt;</code> tag on a button (or trigger) click.
+          </p>
+
+          <pre>
+&lt;script&gt;
+  const trigger = document.querySelector('[role="toggle"].theme-switcher');
+  const html = document.querySelector('html');
+
+  if (trigger) {
+    trigger.addEventListener('click', () => {
+      const mode = html.getAttribute('data-mode');
+      html.setAttribute('data-mode', mode === 'dark' ? 'light' : 'dark');
+    });
+  }
+&lt;/script&gt;
+          </pre>
+
+          <p><br />Example 👇</p>
+
+          <p>
+            <button class="button theme-switcher" role="toggle">Toogle mode</button>
+          </p>
+        </section>
+      </article>
+    </main>
+    <script>
+      const DM_STORAGE_KEY = 'darkModeOn';
+      const THEME = Object.freeze({ DARK: 'dark', LIGHT: 'light' });
+
+      const oppositeStatusLabel = (on) => (on ? 'OFF' : 'ON');
+
+      const userSetDarkModeOn = localStorage.getItem(DM_STORAGE_KEY);
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+      const trigger = document.querySelector('[role="toggle"].theme-switcher');
+      const html = document.querySelector('html');
+
+      html.setAttribute(
+        'data-mode',
+        userSetDarkModeOn === 'true' || (!userSetDarkModeOn && prefersDarkScheme.matches) ? THEME.DARK : THEME.LIGHT
+      );
+
+      let mode = html.getAttribute('data-mode');
+      let darkModeOn = mode === THEME.DARK;
+
+      if (trigger) {
+        trigger.innerHTML = `Turn dark-mode ${oppositeStatusLabel(darkModeOn)}`;
+
+        trigger.addEventListener('click', () => {
+          html.setAttribute('data-mode', mode === THEME.DARK ? THEME.LIGHT : THEME.DARK);
+
+          mode = html.getAttribute('data-mode');
+          darkModeOn = mode === THEME.DARK;
+
+          localStorage.setItem(DM_STORAGE_KEY, darkModeOn);
+          trigger.innerHTML = `Turn dark-mode ${oppositeStatusLabel(darkModeOn)}`;
+        });
+      }
+    </script>
+  </body>
+</html>
