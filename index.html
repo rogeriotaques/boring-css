@@ -7,6 +7,11 @@
 
     <title>The Boring CSS - Docs</title>
 
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+
     <link rel="stylesheet" href="boring.css" />
     <link rel="stylesheet" href="page.css" />
   </head>
@@ -14,22 +19,33 @@
     <main class="container" style="max-width: 640px">
       <article class="hero">
         <h1 class="title">The Boring CSS</h1>
+
         <p class="subtitle">
           A <a href="https://getbem.com/" target="_blank" rel="noopener noreferrer">BEM</a> based set of classes to
-          style your pages in an authentic way.
+          style your pages in an authentic <b>NeuBrutalism</b> way. It's free, use it with care.
+        </p>
+
+        <p>
+          <button class="button theme-switcher" role="toggle">Toogle mode</button>
         </p>
       </article>
 
       <article class="intro">
-        <h2>What is it?</h2>
+        <h2>What is this?</h2>
         <p>
-          Just another boring, and opinionated, CSS styling library, by
+          Just another boring CSS styling library, by
           <a href="https://twitter.com/rogeriotaques" target="_blank" rel="noopener noreferrer">Rogério Taques</a>.
         </p>
+
+        <h3>What is it not?</h3>
         <p>
           It's not a framework, does not have a grid system, and it has a very limited number of components. But it is
           still very cool 😎 and helps you building visually attractive UIs for your website or web application with
           peace of mind.
+        </p>
+        <p>
+          If you need a grid system to use along-with <b>Boring CSS</b>, I recommend you the
+          <a href="https://simplegrid.io/" target="_blank" rel="noopener noreferrer">Simple Grid</a>.
         </p>
 
         <h3>Dark mode ready</h3>
@@ -87,6 +103,13 @@
               <a href="#" class="card__link">Link</a>
             </div>
           </div>
+        </section>
+
+        <section id="images">
+          <h3>Images</h3>
+
+          <img src="https://picsum.photos/200/300" alt="Random image" />
+          <img src="https://picsum.photos/300/200" alt="Random image" />
         </section>
 
         <section id="inputs">
@@ -208,6 +231,57 @@
           </div>
         </section>
 
+        <section id="lists">
+          <h3>Lists</h3>
+
+          <h4>Unordered list</h4>
+
+          <ul>
+            <li>List item</li>
+            <li>List item</li>
+            <li>List item</li>
+          </ul>
+
+          <h4>Ordered list</h4>
+
+          <ol>
+            <li>List item</li>
+            <li>List item</li>
+            <li>List item</li>
+          </ol>
+        </section>
+
+        <section id="tables">
+          <h3>Tables</h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Table Header</th>
+                <th>Table Header</th>
+                <th>Table Header</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Table Cell</td>
+                <td>Table Cell</td>
+                <td>Table Cell</td>
+              </tr>
+              <tr>
+                <td>Table Cell</td>
+                <td>Table Cell</td>
+                <td>Table Cell</td>
+              </tr>
+              <tr>
+                <td>Table Cell</td>
+                <td>Table Cell</td>
+                <td>Table Cell</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
         <section id="notifications">
           <h3>Notifications</h3>
 
@@ -240,6 +314,18 @@
           <div class="progress progress--75">75%</div>
 
           <br /><br />
+
+          <h5>Available steps:</h5>
+
+          <ul>
+            <li><code>progress--0</code></li>
+            <li><code>progress--25</code></li>
+            <li><code>progress--50</code></li>
+            <li><code>progress--75</code></li>
+            <li><code>progress--100</code></li>
+          </ul>
+
+          <br />
 
           E.g. <code>&lt;div class="progress progress--infinite" /&gt;</code>
           <div class="progress progress--infinite"></div>

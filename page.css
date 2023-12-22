@@ -1,3 +1,40 @@
+html, body {
+    background-color: white;
+}
+/* Container */
+/* Mobile first */
+
+.container {
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 100%;
+  max-width: 320px;
+}
+
+@media screen and (min-width: 321px) {
+  .container {
+    max-width: 600px;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .container {
+    max-width: 990px;
+  }
+}
+
+@media screen and (min-width: 991px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .container {
+    max-width: 1480px;
+  }
+}
+
 .title {
     margin-bottom: 0;
 }
