@@ -1,0 +1,203 @@
+/**
+ * SIMPLE FLEX GRID
+ * A simple flexbox grid system based on the Simple Grid by Zach Cole.
+ *
+ * @author: Rogerio Taques
+ * @version: 1.0.0
+ * @license: MIT
+ */
+
+html,
+body {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+
+/* POSITIONING */
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.justify {
+    text-align: justify;
+}
+
+/* ==== GRID SYSTEM ==== */
+
+.container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 0; /* gap-less */
+}
+
+.row.gap-1 {
+    gap: 4px;
+}
+
+.row.gap-2 {
+    gap: 8px;
+}
+
+.row.gap-3 {
+    gap: 12px;
+}
+
+.row.gap-4 {
+    gap: 16px;
+}
+
+.row.gap-5 {
+    gap: 20px;
+}
+
+.row [class^="col"] {
+    box-sizing: border-box;
+    margin: 0.5rem;
+    flex-grow: 1;
+    min-height: 0.125rem;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12 {
+    width: calc(96% - 1rem);
+}
+
+.col-1-sm {
+    width: calc(4.33% - 1rem);
+}
+
+.col-2-sm {
+    width: calc(12.66% - 1rem);
+}
+
+.col-3-sm {
+    width: calc(21% - 1rem);
+}
+
+.col-4-sm {
+    width: calc(29.33% - 1rem);
+}
+
+.col-5-sm {
+    width: calc(37.66% - 1rem);
+}
+
+.col-6-sm {
+    width: calc(46% - 1rem);
+}
+
+.col-7-sm {
+    width: calc(54.33% - 1rem);
+}
+
+.col-8-sm {
+    width: calc(62.66% - 1rem);
+}
+
+.col-9-sm {
+    width: calc(71% - 1rem);
+}
+
+.col-10-sm {
+    width: calc(79.33% - 1rem);
+}
+
+.col-11-sm {
+    width: calc(87.66% - 1rem);
+}
+
+.col-12-sm {
+    width: calc(96% - 1rem);
+}
+
+.row::after {
+    content: "";
+    flex: auto;
+}
+
+.hidden-sm {
+    display: none;
+}
+
+@media only screen and (min-width: 33.75em) {
+
+    /* 540px */
+    .container {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 45em) {
+
+    /* 720px */
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+        width: calc((100% - 2rem) / 12);
+    }
+
+    .hidden-sm {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 60em) {
+
+    /* 960px */
+    .container {
+        width: 75%;
+        max-width: 60rem;
+    }
+}
+
+/* ==== HELPERS ==== */
+
+.is-vcentered {
+    display: flex !important;
+    align-items: center !important;
+}
+
+
+
+
