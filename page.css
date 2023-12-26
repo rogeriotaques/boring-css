@@ -1,38 +1,5 @@
-html, body {
+html {
     background-color: white;
-}
-/* Container */
-/* Mobile first */
-
-.container {
-  margin: 0 auto;
-  padding: 0 16px;
-  width: 100%;
-  max-width: 320px;
-}
-
-@media screen and (min-width: 321px) {
-  .container {
-    max-width: 600px;
-  }
-}
-
-@media screen and (min-width: 601px) {
-  .container {
-    max-width: 990px;
-  }
-}
-
-@media screen and (min-width: 991px) {
-  .container {
-    max-width: 1200px;
-  }
-}
-
-@media screen and (min-width: 1201px) {
-  .container {
-    max-width: 1480px;
-  }
 }
 
 .title {
@@ -41,4 +8,36 @@ html, body {
 
 .title + .subtitle {
     margin-top: 0;
+}
+
+/* GitHub Badge */
+.github-badge {
+    position: fixed;
+    top: 60px;
+    right: -10px;
+    display: flex;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    transform: rotate(45deg);
+}
+
+.github-badge a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.github-badge img {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.github-badge:hover img {
+    filter: brightness(120%);
+}
+
+.github-badge:hover a {
+    color: #4183C4;
 }
