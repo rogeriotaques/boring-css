@@ -12,17 +12,29 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
 
+    <link rel="stylesheet" href="simple-flex-grid.css" />
     <link rel="stylesheet" href="boring.css" />
     <link rel="stylesheet" href="page.css" />
   </head>
   <body>
+    <div class="github-badge">
+      <a href="https://github.com/rogeriotaques/boring-css" target="_blank">
+        <img src="https://github.com/fluidicon.png" alt="GitHub Icon" class="icon" />
+        View on GitHub
+      </a>
+    </div>
+
     <main class="container" style="max-width: 640px">
       <article class="hero">
         <h1 class="title">The Boring CSS</h1>
 
         <p class="subtitle">
           A <a href="https://getbem.com/" target="_blank" rel="noopener noreferrer">BEM</a> based set of classes to
-          style your pages in an authentic <b>NeuBrutalism</b> way. It's free, use it with care.
+          style your pages in an authentic <b>NeuBrutalism</b> way. <b>It's free, use it with care.</b>
+        </p>
+
+        <p>
+          <span class="badge badge--success">Version 1.0.0</span>
         </p>
 
         <p>
@@ -38,6 +50,7 @@
         </p>
 
         <h3>What is it not?</h3>
+
         <p>
           It's not a framework, does not have a grid system, and it has a very limited number of components. But it is
           still very cool 😎 and helps you building visually attractive UIs for your website or web application with
@@ -45,10 +58,11 @@
         </p>
         <p>
           If you need a grid system to use along-with <b>Boring CSS</b>, I recommend you the
-          <a href="https://simplegrid.io/" target="_blank" rel="noopener noreferrer">Simple Grid</a>.
+          <a href="simple-flex-grid.css" target="_blank" rel="noopener noreferrer">Simple Flex Grid</a>.
         </p>
 
         <h3>Dark mode ready</h3>
+
         <p>Yes! It supports dark mode already! 🎉</p>
         <p>You just need to add <code>data-mode="dark"</code> in the <code>&lt;html /&gt;</code> tag.</p>
       </article>
@@ -59,13 +73,32 @@
         <section id="badges">
           <h3>Badge</h3>
 
-          <div>
+          <div class="badges">
             <span class="badge">Badge</span>
             <span class="badge badge--success">Badge</span>
             <span class="badge badge--warning">Badge</span>
             <span class="badge badge--danger">Badge</span>
             <span class="badge badge--dark">Badge</span>
           </div>
+
+          <br />
+
+          <h5>Use:</h5>
+
+          <pre>
+&lt;span class="badge"&gt;Badge&lt;/span&gt;
+          </pre>
+
+          <br />
+
+          <h5>Available modifiers:</h5>
+
+          <ul>
+            <li><code>badge--success</code></li>
+            <li><code>badge--warning</code></li>
+            <li><code>badge--danger</code></li>
+            <li><code>badge--dark</code></li>
+          </ul>
         </section>
 
         <section id="boxes">
@@ -75,17 +108,47 @@
             <p>This is a box block.</p>
             <p>A box is a container for any kind of content.</p>
           </div>
+
+          <br /><br />
+
+          <h5>Use:</h5>
+
+          <pre>
+&lt;span class="box"&gt;Badge&lt;/span&gt;
+          </pre>
         </section>
 
         <section id="buttons">
           <h3>Buttons</h3>
 
-          <button type="button">Button</button>
-          <button type="submit">Submit</button>
-          <button type="reset">Reset</button>
-          <a href="#" class="button">Link Button</a>
-          <button disabled>Disabled</button>
-          <a href="#" class="button button--disabled">Link Button</a>
+          <div class="buttons">
+            <button type="button">Button</button>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+            <a href="#" class="button">Link Button</a>
+            <button disabled>Disabled</button>
+            <a href="#" class="button button--disabled">Link Button</a>
+          </div>
+
+          <br />
+
+          <h5>Use:</h5>
+
+          <pre>
+&lt;button type="button"&gt;Button&lt;/button&gt;
+&lt;button type="submit"&gt;Button&lt;/button&gt;
+&lt;button type="reset"&gt;Button&lt;/button&gt;
+
+&lt;a href="#" class="button"&gt;Button&lt;/button&gt;
+          </pre>
+
+          <br />
+          <br />
+
+          <p>
+            To disable a button, simply add <code>disabled</code> attribute for <code>buttons</code> and
+            <code>button--disabled</code> class modifier for <code>a</code> tags.
+          </p>
         </section>
 
         <section id="cards">
@@ -103,6 +166,26 @@
               <a href="#" class="card__link">Link</a>
             </div>
           </div>
+
+          <br />
+          <br />
+
+          <h5>Use:</h5>
+
+          <pre>
+&lt;div class="card"&gt;
+    &lt;div class="card__header"&gt;
+        &lt;h3&gt;This is a card header.&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;div class="card__body"&gt;
+        &lt;p&gt;This is the card body&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="card__footer"&gt;
+        &lt;a href="#" class="card__link"&gt;Link&lt;/a&gt;
+        &lt;a href="#" class="card__link"&gt;Link&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+          </pre>
         </section>
 
         <section id="images">
@@ -110,6 +193,15 @@
 
           <img src="https://picsum.photos/200/300" alt="Random image" />
           <img src="https://picsum.photos/300/200" alt="Random image" />
+
+          <br />
+          <br />
+
+          <h5>Use:</h5>
+
+          <pre>
+&lt;img src="..." alt="..." /&gt;
+          </pre>
         </section>
 
         <section id="inputs">
@@ -148,6 +240,41 @@
 
           <br />
 
+          <h5>Use:</h5>
+
+          <pre>
+&lt;div class="input"&gt;
+  &lt;input type="text" placeholder="Text Input" /&gt;
+&lt;/div&gt;
+
+&lt;-- OR --&gt;
+
+&lt;div class="input"&gt;
+  &lt;select&gt;
+    &lt;option value=""&gt;Select&lt;/option&gt;
+  &lt;/select&gt; 
+&lt;/div&gt;
+
+&lt;-- OR --&gt;
+
+&lt;div class="input"&gt;
+  &lt;textarea class="input" placeholder="Textarea"&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+          </pre>
+
+          <br />
+          <br />
+
+          <h5>Available modifiers:</h5>
+
+          <ul>
+            <li><code>input--success</code></li>
+            <li><code>input--warning</code></li>
+            <li><code>input--error</code></li>
+          </ul>
+
+          <br />
+
           <h4>Check boxes and radios</h4>
 
           <!-- Checkbox -->
@@ -174,6 +301,24 @@
 
           <br />
 
+          <h5>Use:</h5>
+
+          <pre>
+&lt;div class="input input--checkbox"&gt;
+  &lt;input type="checkbox" id="checkbox_1" checked /&gt;
+  &lt;label for="checkbox_1"&gt;Checkbox checked&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;-- OR --&gt;
+
+&lt;div class="input input--radio"&gt;
+  &lt;input type="radio" name="radio" id="radio_1" checked /&gt;
+  &lt;label for="radio_1"&gt;Radio checked&lt;/label&gt;
+&lt;/div&gt;
+          </pre>
+
+          <br /><br />
+
           <h4>With label</h4>
 
           <!-- With add-ons -->
@@ -184,6 +329,18 @@
 
           <br />
 
+          <h5>Use:</h5>
+
+          <pre>
+&lt;div class="input input--with-helpers"&gt;
+  &lt;label for="input"&gt;Name&lt;/label&gt;
+  &lt;input type="text" id="input" placeholder="Text Input" /&gt;
+&lt;/div&gt;
+          </pre>
+
+          <br />
+          <br />
+
           <h4>With helpers</h4>
 
           <!-- With helpers -->
@@ -192,6 +349,18 @@
             <p class="input__helper">This is a helper text.</p>
           </div>
 
+          <br />
+
+          <h5>Use:</h5>
+
+          <pre>
+&lt;div class="input input--with-helpers"&gt;
+  &lt;input type="text" placeholder="Text Input" /&gt;
+  &lt;p class="input__helper"&gt;This is a helper text.&lt;/p&gt;
+&lt;/div&gt;
+          </pre>
+
+          <br />
           <br />
 
           <h4>With add-ons</h4>
@@ -216,6 +385,34 @@
 
           <br />
 
+          <h5>Use:</h5>
+
+          <pre>
+&lt;div class="input input--with-addons"&gt;
+  &lt;p class="input__addon"&gt;https://&lt;/p&gt;
+  &lt;input type="text" placeholder="Text Input" /&gt;
+&lt;/div&gt;
+
+&lt;-- OR --&gt;
+
+&lt;div class="input input--with-addons"&gt;
+  &lt;input type="text" placeholder="Text Input" /&gt;
+  &lt;p class="input__addon"&gt;@gmail.com&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;-- OR --&gt;
+
+&lt;div class="input input--with-addons"&gt;
+  &lt;input type="text" placeholder="Text Input" /&gt;
+  &lt;select class="input__addon"&gt;
+    &lt;option value=""&gt;Select&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/div&gt;
+          </pre>
+
+          <br />
+          <br />
+
           <h4>Grouped</h4>
 
           <!-- Grouped inputs -->
@@ -229,6 +426,25 @@
             <input type="text" placeholder="Text Input" />
             <input type="text" placeholder="Text Input" />
           </div>
+
+          <br />
+
+          <h5>Use:</h5>
+
+          <pre>
+&lt;div class="input input--grouped"&gt;
+  &lt;input type="text" placeholder="Text Input" /&gt;
+  &lt;input type="text" placeholder="Text Input" /&gt;
+&lt;/div&gt;
+
+&lt;-- OR --&gt;
+
+&lt;div class="input input--grouped"&gt;
+  &lt;input type="text" placeholder="Text Input" /&gt;
+  &lt;input type="text" placeholder="Text Input" /&gt;  
+  &lt;input type="text" placeholder="Text Input" /&gt;
+&lt;/div&gt;
+          </pre>
         </section>
 
         <section id="lists">
@@ -249,6 +465,26 @@
             <li>List item</li>
             <li>List item</li>
           </ol>
+
+          <br />
+
+          <h5>Use:</h5>
+
+          <pre>
+&lt;ul&gt;
+  &lt;li&gt;List item&lt;/li&gt;
+  &lt;li&gt;List item&lt;/li&gt;  
+  &lt;li&gt;List item&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;-- OR --&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;List item&lt;/li&gt;
+  &lt;li&gt;List item&lt;/li&gt;
+  &lt;li&gt;List item&lt;/li&gt;
+&lt;/ol&gt;
+          </pre>
         </section>
 
         <section id="tables">
@@ -257,29 +493,55 @@
           <table>
             <thead>
               <tr>
-                <th>Table Header</th>
-                <th>Table Header</th>
-                <th>Table Header</th>
+                <th>User name</th>
+                <th>Email</th>
+                <th>Phone</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Table Cell</td>
-                <td>Table Cell</td>
-                <td>Table Cell</td>
+                <td>John McLane</td>
+                <td>mclane@diehard.movie</td>
+                <td>1 234 5678 900</td>
               </tr>
               <tr>
-                <td>Table Cell</td>
-                <td>Table Cell</td>
-                <td>Table Cell</td>
+                <td>Luke Skywalker</td>
+                <td>l.skywalker@startwars.movie</td>
+                <td>123 4567 8901</td>
               </tr>
               <tr>
-                <td>Table Cell</td>
-                <td>Table Cell</td>
-                <td>Table Cell</td>
+                <td>Tony Stark</td>
+                <td>tony@starkindustries.movie</td>
+                <td>12 3456 7890</td>
               </tr>
             </tbody>
           </table>
+
+          <br />
+
+          <h5>Use:</h5>
+
+          <pre>
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;User name&lt;/th&gt;
+      &lt;th&gt;Email&lt;/th&gt;  
+      &lt;th&gt;Phone&lt;/th&gt;  
+    &lt;/tr&gt; 
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;John McLane&lt;/td&gt;
+      &lt;td&gt;mclane@diehard.moviee&lt;/td&gt;
+      &lt;td&gt;1 234 5678 900&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;!-- ... --&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+          </pre>
+
+          <br />
         </section>
 
         <section id="notifications">
@@ -289,6 +551,26 @@
           <div class="notification notification--success">This is a success notification block.</div>
           <div class="notification notification--warning">This is a warning notification block.</div>
           <div class="notification notification--error">This is an error notification block.</div>
+
+          <br />
+
+          <h5>Use:</h5>
+
+          <pre>
+&lt;div class="notification"&gt;
+  This is a notification block.
+&lt;/div&gt;
+          </pre>
+
+          <br />
+
+          <h5>Available modifiers:</h5>
+
+          <ul>
+            <li><code>notification--success</code></li>
+            <li><code>notification--warning</code></li>
+            <li><code>notification--error</code></li>
+          </ul>
         </section>
 
         <section id="pre">
@@ -303,8 +585,8 @@
           <pre>
 &lt;pre&gt;
   &lt;!-- Code here --&gt;
-&lt;/pre&gt;</pre
-          >
+&lt;/pre&gt;
+          </pre>
         </section>
 
         <section id="progress">
@@ -313,9 +595,18 @@
           E.g. <code>&lt;div class="progress progress--75" /&gt;</code>
           <div class="progress progress--75">75%</div>
 
-          <br /><br />
+          <br />
 
-          <h5>Available steps:</h5>
+          <h5>Use:</h5>
+
+          <pre>
+&lt;div class="progress progress--75"&gt;75%&lt;/div&gt;
+          </pre>
+
+          <br />
+          <br />
+
+          <h5>Available modifiers:</h5>
 
           <ul>
             <li><code>progress--0</code></li>
@@ -329,6 +620,16 @@
 
           E.g. <code>&lt;div class="progress progress--infinite" /&gt;</code>
           <div class="progress progress--infinite"></div>
+
+          <br />
+
+          <h5>Use:</h5>
+
+          <pre>
+&lt;div class="progress progress--infinite"&gt;&lt;/div&gt;
+          </pre>
+
+          <br />
         </section>
 
         <section id="tooltips">
@@ -363,7 +664,7 @@
           <br />
           <br />
 
-          <p>To add tooltips, use 👇</p>
+          <h5>Use:</h5>
 
           <pre>
 &lt;p 
@@ -371,22 +672,33 @@
   data-tooltip="This is the message to be shown on the tooltip"
 &gt; ... &lt;/p&gt;
           </pre>
+
+          <br />
+
+          <h5>Available modifiers:</h5>
+
+          <ul>
+            <li><code>has-tooltip--left</code></li>
+            <li><code>has-tooltip--top</code></li>
+            <li><code>has-tooltip--bottom</code></li>
+            <li><code>has-tooltip--right</code></li>
+          </ul>
         </section>
       </article>
 
       <article class="javascript">
         <h2>Javascript</h2>
         <p>
-          Although you are not required to use Javascript with <b>Boring CSS</b>, you might want to use it to enhance
-          the user experience of your website or web application, for example to give users the ability to change the
-          color theme, or open/close a modal, etc.
+          Although you are not required to use Javascript with <b>Boring CSS</b> at all, you might want to use it to
+          enhance the user experience (UX) of your website or web apps, for example, to give users the ability to change
+          the color theme, or open/close a modal, etc.
         </p>
 
         <section class="javascript-theme-change">
-          <h3>Light-Dark mode change</h3>
+          <h4>Light-Dark mode switcher</h4>
           <p>
-            The simple Javascript code below toggles the <code>data-mode</code> attribute of the
-            <code>&lt;html /&gt;</code> tag on a button (or trigger) click.
+            The simple Javascript code bellow toggles the <code>data-mode</code> attribute of the
+            <code>&lt;html /&gt;</code> tag on a button (or trigger) click. Use it freely.
           </p>
 
           <pre>
@@ -403,46 +715,30 @@
 &lt;/script&gt;
           </pre>
 
-          <p><br />Example 👇</p>
+          <br />
+
+          <h5>E.g. 👇</h5>
 
           <p>
             <button class="button theme-switcher" role="toggle">Toogle mode</button>
           </p>
+
+          <p>
+            You may want to use the
+            <a href="boring.js" target="_blank" rel="noopener noreferrer">The Boring JavaScript</a>, a small and simple
+            JavaScript library to help you with some common tasks, like toggling the theme.
+          </p>
         </section>
       </article>
+
+      <footer>
+        <p>
+          &copy; 2023,
+          <a href="https://x.com/rogeriotaques" target="_blank" rel="noopener noreferrer">Rogerio Taques</a>.
+        </p>
+      </footer>
     </main>
-    <script>
-      const DM_STORAGE_KEY = 'darkModeOn';
-      const THEME = Object.freeze({ DARK: 'dark', LIGHT: 'light' });
 
-      const oppositeStatusLabel = (on) => (on ? 'OFF' : 'ON');
-
-      const userSetDarkModeOn = localStorage.getItem(DM_STORAGE_KEY);
-      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-      const trigger = document.querySelector('[role="toggle"].theme-switcher');
-      const html = document.querySelector('html');
-
-      html.setAttribute(
-        'data-mode',
-        userSetDarkModeOn === 'true' || (!userSetDarkModeOn && prefersDarkScheme.matches) ? THEME.DARK : THEME.LIGHT
-      );
-
-      let mode = html.getAttribute('data-mode');
-      let darkModeOn = mode === THEME.DARK;
-
-      if (trigger) {
-        trigger.innerHTML = `Turn dark-mode ${oppositeStatusLabel(darkModeOn)}`;
-
-        trigger.addEventListener('click', () => {
-          html.setAttribute('data-mode', mode === THEME.DARK ? THEME.LIGHT : THEME.DARK);
-
-          mode = html.getAttribute('data-mode');
-          darkModeOn = mode === THEME.DARK;
-
-          localStorage.setItem(DM_STORAGE_KEY, darkModeOn);
-          trigger.innerHTML = `Turn dark-mode ${oppositeStatusLabel(darkModeOn)}`;
-        });
-      }
-    </script>
+    <script src="./boring.js" type="text/javascript"></script>
   </body>
 </html>
