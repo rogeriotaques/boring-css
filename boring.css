@@ -9,7 +9,7 @@
 
 @charset "UTF-8";
 
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Code+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 
 :root {
   color-scheme: light dark;
@@ -65,7 +65,7 @@ html[data-mode="dark"],
   
 * {
   color: var(--c-black-pure);
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Source Code Pro', monospace;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.6;
@@ -263,7 +263,6 @@ section + section {
   min-width: 65px;
   text-align: center;
   cursor: default;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 14px; 
   font-weight: 700;
   letter-spacing: 1px;
@@ -350,7 +349,6 @@ button, .button {
   border: var(--s-border-width) solid var(--c-grey-dark);
   border-radius: var(--s-border-radius);
   color: var(--c-grey-dark);
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-weight: 700;
   padding: 8px 16px;
   margin: 0 4px 8px 0;
@@ -537,7 +535,6 @@ button[type="reset"] {
   flex: 1 1 auto;
   text-align: center;
   text-decoration: none;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   transition: background-color 0.15s ease;
 }
 

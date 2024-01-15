@@ -19,6 +19,8 @@ html {
     align-items: center;
     font-family: 'Arial', sans-serif;
     transform: rotate(45deg);
+    backdrop-filter: blur(5px);
+    z-index: 100;
 }
 
 .github-badge a {
