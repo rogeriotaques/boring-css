@@ -37,8 +37,8 @@
   --c-danger-background: #fed8d8;
 
   /* Sizes */
-  --s-border-width: 4px;
-  --s-border-width-thin: 2px;
+  --s-border-width: 2px;
+  --s-border-width-thin: 1px;
   --s-border-radius: 8px;
   --s-box-shadow: 4px 4px 0;
   --s-box-shadow-hover: 2px 2px 0;
@@ -665,7 +665,7 @@ input::-webkit-inner-spin-button {
   width: 0.5em;
   height: 0.5em;
   transform: scale(0);
-  transition: 120ms transform ease-in-out;
+  transition: 120ms transform ease-in-out, 120ms background-color ease-in-out;
 }
 
 .input--checkbox > input[type="checkbox"]::before {
@@ -677,9 +677,13 @@ input::-webkit-inner-spin-button {
   box-shadow: inset 1em 1em var(--c-success);
 }
 
-.input--radio > input[type="radio"]:checked,
+.input--radio > input[type="radio"]:checked {
+  border-color: var(--c-success);
+}
+
 .input--checkbox > input[type="checkbox"]:checked {
   border-color: var(--c-success);
+  background-color: var(--c-success);
 }
 
 .input--radio > input[type="radio"]:checked::before {
