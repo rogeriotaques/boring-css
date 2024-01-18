@@ -35,14 +35,20 @@
   --c-warning-background: #faf1cb;
   --c-danger: #a52b2b;
   --c-danger-background: #fed8d8;
+  --c-info: #2b6ca5;
+  --c-info-background: #d8e9fe;
 
   /* Sizes */
   --s-border-width: 2px;
   --s-border-width-thin: 1px;
   --s-border-radius: 8px;
+  
   --s-box-shadow: 4px 4px 0;
   --s-box-shadow-hover: 2px 2px 0;
   --s-box-shadow-click: 0 0 0;
+
+  --s-transform-hover: translate(2px, 2px);
+  --s-transform-click: translate(4px, 4px);
 }
 
 /**
@@ -353,46 +359,42 @@ button, .button {
   padding: 8px 16px;
   margin: 0 4px 8px 0;
   min-width: 145px;
-  box-shadow: var(--s-box-shadow) var(--c-grey-dark);
   text-align: center;
   text-decoration: none;
   cursor: pointer;
   outline: none;
+  box-shadow: var(--s-box-shadow) var(--c-grey-dark);
   
-  transition: box-shadow 0.1s ease, transform 0.1s ease, background-color 0.1s ease;
+  transition: box-shadow 0.1s ease, transform 0.1s ease, background-color 0.1s ease; 
 }
 
 [data-mode="dark"] button, [data-mode="dark"] .button {
   color: var(--c-smoke);
   background-color: var(--c-grey-dark);
   border-color: var(--s-border-width) solid var(--c-smoke);
-  box-shadow: var(--s-box-shadow) var(--c-white);
+  box-shadow: var(--s-box-shadow) var(--c-white); 
 }
 
-button:hover, .button:hover,
-button:focus, .button:focus {
+button:not(:disabled):hover, .button:not(.button--disabled):hover,
+button:not(:disabled):focus, .button:not(.button--disabled):focus {
   color: var(--c-grey-dark);
-  transform: translate(2px, 2px);
-  box-shadow: var(--s-box-shadow-hover) var(--c-white);
-  background-color: var(--c-background);
+  box-shadow: var(--s-box-shadow-hover) var(--c-grey-dark);
+  transform: var(--s-transform-hover);
 }
 
-[data-mode="dark"] button:hover, [data-mode="dark"] .button:hover,
-[data-mode="dark"] button:focus, [data-mode="dark"] .button:focus {
+[data-mode="dark"] button:not(:disabled):hover, [data-mode="dark"] .button:not(.button--disabled):hover,
+[data-mode="dark"] button:not(:disabled):focus, [data-mode="dark"] .button:not(.button--disabled):focus {
   color: var(--c-smoke);
   box-shadow: var(--s-box-shadow-hover) 0 var(--c-white);
-  background-color: var(--c-grey-dark);
 }
 
-button:active, .button:active {
-  transform: translate(4px, 4px);
+button:not(:disabled):active, .button:not(.button--disabled):active {
+  transform: var(--s-transform-click);
   box-shadow: var(--s-box-shadow-click) var(--c-grey-dark);
-  background-color: var(--c-background-active);
 }
 
-[data-mode="dark"] button:active, [data-mode="dark"] .button:active {
+[data-mode="dark"] button:not(:disabled):active, [data-mode="dark"] .button:not(.button--disabled):active {
   box-shadow: var(--s-box-shadow-click) var(--c-grey);
-  background-color: var(--c-black);
 }
 
 button:disabled, .button--disabled {
@@ -402,7 +404,7 @@ button:disabled, .button--disabled {
   box-shadow: var(--s-box-shadow-click) var(--c-border);
   text-shadow: 1px 1px 3px var(--c-white);
   text-decoration: none;
-  cursor: not-allowed;
+  cursor: not-allowed; 
 }
 
 [data-mode="dark"] button:disabled, [data-mode="dark"] .button--disabled {
@@ -410,50 +412,28 @@ button:disabled, .button--disabled {
   background-color: var(--c-black);
   border-color: var(--c-smoke);
   box-shadow: var(--s-box-shadow-click) var(--c-grey-light);
-  text-shadow: 1px 1px 3px var(--c-black-pure);
+  text-shadow: 1px 1px 3px var(--c-black-pure); 
 }
 
-button:disabled:hover, .button--disabled:hover,
-button:disabled:focus, .button--disabled:focus,
-button:disabled:active, .button--disabled:active {
-  color: var(--c-placeholder);
-  transform: translate(0, 0);
-  box-shadow: var(--s-box-shadow-click) var(--c-border);
-  background-color: var(--c-background-disabled);
-}
-
-[data-mode="dark"] button:disabled:hover, [data-mode="dark"] .button--disabled:hover,
-[data-mode="dark"] button:disabled:focus, [data-mode="dark"] .button--disabled:focus,
-[data-mode="dark"] button:disabled:active, [data-mode="dark"] .button--disabled:active {
-  color: var(--c-placeholder);
-  box-shadow: var(--s-box-shadow-click) var(--c-grey-light);
-  background-color: var(--c-black);
-}
-
-button[type="submit"] {
+button[type="submit"]:not(:disabled) {
   color: var(--c-black);
   background-color: var(--c-success-background);
   border-color: var(--c-success);
 }
 
-[data-mode="dark"] button[type="submit"]:hover,
-[data-mode="dark"] button[type="submit"]:focus,
-[data-mode="dark"] button[type="submit"]:active {
-  color: var(--c-black);
-  background-color: var(--c-success-background);
-}
-
-button[type="reset"] {
+button[type="reset"]:not(:disabled) {
   color: var(--c-black);
   background-color: var(--c-danger-background);
   border-color: var(--c-danger);
 }
 
-[data-mode="dark"] button[type="reset"]:hover,
-[data-mode="dark"] button[type="reset"]:focus,
-[data-mode="dark"] button[type="reset"]:active {
+[data-mode="dark"] button[type="submit"]:not(:disabled):hover,
+[data-mode="dark"] button[type="submit"]:not(:disabled):focus,
+[data-mode="dark"] button[type="submit"]:not(:disabled):active,
+[data-mode="dark"] button[type="reset"]:not(:disabled):hover,
+[data-mode="dark"] button[type="reset"]:not(:disabled):focus,
+[data-mode="dark"] button[type="reset"]:not(:disabled):active {
   color: var(--c-black);
-  background-color: var(--c-danger-background);
 }
 
 
@@ -932,6 +912,18 @@ table tbody > tr:hover {
   border-color: var(--c-danger);
 }
 
+.notification--info {
+  color: var(--c-white);
+  background-color: var(--c-info);
+  border-color: var(--c-info);
+}
+
+[data-mode="dark"] .notification--info {
+  color: var(--c-black);
+  background-color: var(--c-info-background);
+  border-color: var(--c-info);
+}
+
 /* Pre */
 
 code {
@@ -1083,10 +1075,9 @@ pre::before {
 
 .has-tooltip:hover::before,
 .has-tooltip:hover::after {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
-/* 
 .has-tooltip::before {
   content: '';
   cursor: default;
@@ -1107,7 +1098,6 @@ pre::before {
 [data-mode="dark"] .has-tooltip::before {
   border-color: var(--c-smoke) transparent transparent transparent;
 } 
-*/
 
 .has-tooltip::after {
   content: attr(data-tooltip);
@@ -1176,4 +1166,20 @@ pre::before {
   top: 50%;
   margin-left: -12px;
   transform: translateX(-100%) translateY(-50%);
+}
+
+.tooltip--top {
+  background-color: green !important;
+}
+
+.tooltip--bottom {
+  background-color: blue !important;
+}
+
+.tooltip--left {
+  background-color: orange !important;
+}
+
+.tooltip--right {
+  background-color: pink !important;
 }
