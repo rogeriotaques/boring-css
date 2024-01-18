@@ -40,7 +40,8 @@
     localStorage.setItem(DM_STORAGE_KEY, darkModeOn);
 
     triggers.forEach((trigger) => {
-      trigger.innerHTML = `Turn dark-mode ${oppositeStatusLabel(!darkModeOn)}`;
+      const status = trigger.querySelector('.status');
+      if (status) status.innerHTML = oppositeStatusLabel(!darkModeOn);
     });
   };
 
@@ -64,40 +65,39 @@
 
   modeChangeHandler();
 
-  /* Tool Tip Auto Positioning */
+  /* Tooltip Auto Positioning */
 
   const tooltips = document.querySelectorAll('.has-tooltip');
 
-  const repositionTooltips = () => {
+  const handleTooltip = () => {
     tooltips.forEach((tooltip) => {
-      const curPos = tooltip.getBoundingClientRect();
-      const isOnTop = tooltip.classList.contains('has-tooltip--top');
-      const isOnRight = tooltip.classList.contains('has-tooltip--right');
-      const isAtBottom = tooltip.classList.contains('has-tooltip--bottom');
-      const isOnLeft = tooltip.classList.contains('has-tooltip--left');
+      const curPosClassName = `${tooltip.classList}`.replace('has-tooltip', '').trim();
 
-      if (isOnLeft && curPos.left <= 240) {
-        tooltip.classList.add('has-tooltip--right');
-        tooltip.classList.remove('has-tooltip--left');
-      }
+      tooltip.setAttribute('data-position', curPosClassName);
 
-      if (isOnRight && curPos.right + 240 >= window.innerWidth) {
-        tooltip.classList.add('has-tooltip--left');
-        tooltip.classList.remove('has-tooltip--right');
-      }
+      tooltip.addEventListener('mouseenter', () => {
+        const curPos = tooltip.getBoundingClientRect();
+        const oriPos = tooltip.getAttribute('data-position');
 
-      if (isOnTop && curPos.top <= 50) {
-        tooltip.classList.add('has-tooltip--bottom');
-        tooltip.classList.remove('has-tooltip--top');
-      }
-
-      if (isAtBottom && curPos.bottom + 50 >= window.innerHeight) {
-        tooltip.classList.add('has-tooltip--top');
-        tooltip.classList.remove('has-tooltip--bottom');
-      }
+        if (oriPos === 'has-tooltip--top' && Math.ceil(curPos.top - 55) <= 0) {
+          tooltip.classList.replace('has-tooltip--top', 'has-tooltip--bottom');
+        } else if (oriPos === 'has-tooltip--bottom' && Math.ceil(curPos.bottom + 55) >= window.innerHeight) {
+          tooltip.classList.replace('has-tooltip--bottom', 'has-tooltip--top');
+        } else if (oriPos === 'has-tooltip--left' && Math.ceil(curPos.left - 240) <= 0) {
+          tooltip.classList.replace('has-tooltip--left', 'has-tooltip--right');
+        } else if (oriPos === 'has-tooltip--right' && Math.ceil(curPos.right + 240) >= window.innerWidth) {
+          tooltip.classList.replace('has-tooltip--right', 'has-tooltip--left');
+        } else {
+          // Reset to the original position
+          tooltip.classList.remove('has-tooltip--top');
+          tooltip.classList.remove('has-tooltip--right');
+          tooltip.classList.remove('has-tooltip--bottom');
+          tooltip.classList.remove('has-tooltip--left');
+          tooltip.classList.add(oriPos);
+        }
+      });
     });
   };
 
-  window.addEventListener('resize', repositionTooltips);
-  window.addEventListener('scroll', repositionTooltips);
+  handleTooltip();
 })();
