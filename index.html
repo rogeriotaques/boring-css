@@ -41,12 +41,12 @@
         </p>
 
         <p>
-          <span class="badge badge--success">Version 1.1.0</span>
+          <span class="badge badge--success">Version 1.2.0</span>
         </p>
 
         <p>
           <button class="button theme-switcher" role="toggle" data-cyanstats-event="Mode Switcher - Head">
-            Toogle mode
+            Toogle mode <span class="status">...</span>
           </button>
         </p>
       </article>
@@ -572,6 +572,7 @@
           <div class="notification notification--success">This is a success notification block.</div>
           <div class="notification notification--warning">This is a warning notification block.</div>
           <div class="notification notification--error">This is an error notification block.</div>
+          <div class="notification notification--info">This is an info notification block.</div>
 
           <br />
 
@@ -591,6 +592,7 @@
             <li><code>notification--success</code></li>
             <li><code>notification--warning</code></li>
             <li><code>notification--error</code></li>
+            <li><code>notification--info</code></li>
           </ul>
         </section>
 
@@ -656,24 +658,24 @@
           <p>Hover over the texts below to see the tooltips in action!</p>
 
           <br />
+
+          <p class="notification notification--info">
+            The tooltip may show on the opposite site, if the trigger is too close to the edge of the screen.
+          </p>
+
+          <br />
           <br />
           <br />
 
           <div style="text-align: center">
             <div style="width: auto; display: inline-block; padding: 16px; margin-right: 16px">
-              <p
-                style="cursor: pointer"
-                class="has-tooltip has-tooltip--left"
-                data-tooltip="Show on the left something really long"
-              >
-                Left
-              </p>
+              <p style="cursor: pointer" class="has-tooltip has-tooltip--left" data-tooltip="Shows on the left">Left</p>
             </div>
             <div style="width: auto; display: inline-block; padding: 16px; margin-right: 16px">
-              <p style="cursor: pointer" class="has-tooltip has-tooltip--top" data-tooltip="Show on top">Top</p>
+              <p style="cursor: pointer" class="has-tooltip has-tooltip--top" data-tooltip="Shows on the top">Top</p>
             </div>
             <div style="width: auto; display: inline-block; padding: 16px; margin-right: 16px">
-              <p style="cursor: pointer" class="has-tooltip has-tooltip--bottom" data-tooltip="Show at bottom">
+              <p style="cursor: pointer" class="has-tooltip has-tooltip--bottom" data-tooltip="Show at the bottom">
                 Bottom
               </p>
             </div>
@@ -745,7 +747,7 @@
 
           <p>
             <button class="button theme-switcher" role="toggle" data-cyanstats-event="Mode Switcher - Footer">
-              Toogle mode
+              Toggle mode <span class="status">...</span>
             </button>
           </p>
 
