@@ -3,7 +3,7 @@
  * A simple flexbox grid system based on the Simple Grid by Zach Cole.
  *
  * @author: Rogerio Taques
- * @version: 1.0.0
+ * @version: 1.0.1
  * @license: MIT
  */
 
@@ -15,189 +15,166 @@ body {
     font-size: 100%;
 }
 
-/* POSITIONING */
-
-.left {
-    text-align: left;
-}
-
-.right {
-    text-align: right;
-}
-
-.center {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.justify {
-    text-align: justify;
-}
-
 /* ==== GRID SYSTEM ==== */
 
 .container {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-wrap: wrap;
+  width: calc(100% - 32px);
+  min-width: 320px;
+  margin: 0 auto;
 }
 
 .row {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    gap: 0; /* gap-less */
+  width: 100%;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  
+  gap: 0px; /* default to gap-less */
 }
 
 .row.gap-1 {
-    gap: 4px;
+  gap: 4px;
 }
 
 .row.gap-2 {
-    gap: 8px;
+  gap: 8px;
 }
 
 .row.gap-3 {
-    gap: 12px;
+  gap: 12px;
 }
 
 .row.gap-4 {
-    gap: 16px;
+  gap: 16px;
 }
 
 .row.gap-5 {
-    gap: 20px;
+  gap: 20px;
 }
 
 .row [class^="col"] {
-    box-sizing: border-box;
-    margin: 0.5rem;
-    flex-grow: 1;
-    min-height: 0.125rem;
+  box-sizing: border-box;
+  min-height: 8px;
+  margin: 0;
+  padding: 0;
+  flex: 1 0 auto;
 }
 
-.col-1,
-.col-2,
-.col-3,
-.col-4,
-.col-5,
-.col-6,
-.col-7,
-.col-8,
-.col-9,
-.col-10,
-.col-11,
+.col-1 {
+  flex: 0 0 calc(100% / 12) !important;
+}
+
+.col-2 {
+  flex: 0 1 calc(100% / 12 * 2) !important;
+}
+
+.col-3 {
+  flex: 0 1 calc(100% / 12 * 3) !important;
+}
+
+.col-4 {
+  flex: 0 1 calc(100% / 12 * 4) !important;
+}
+
+.col-5 {
+  flex: 0 1 calc(100% / 12 * 5) !important;
+}
+
+.col-6 {
+  flex: 0 1 calc(100% / 12 * 6) !important;
+}
+
+.col-7 {
+  flex: 0 1 calc(100% / 12 * 7) !important;
+}
+
+.col-8 {
+  flex: 0 1 calc(100% / 12 * 8) !important;
+}
+
+.col-9 {
+  flex: 0 1 calc(100% / 12 * 9) !important;
+}
+
+.col-10 {
+  flex: 0 1 calc(100% / 12 * 10) !important;
+}
+
+.col-11 {
+  flex: 0 1 calc(100% / 12 * 11) !important;
+}
+
 .col-12 {
-    width: calc(96% - 1rem);
-}
-
-.col-1-sm {
-    width: calc(4.33% - 1rem);
-}
-
-.col-2-sm {
-    width: calc(12.66% - 1rem);
-}
-
-.col-3-sm {
-    width: calc(21% - 1rem);
-}
-
-.col-4-sm {
-    width: calc(29.33% - 1rem);
-}
-
-.col-5-sm {
-    width: calc(37.66% - 1rem);
-}
-
-.col-6-sm {
-    width: calc(46% - 1rem);
-}
-
-.col-7-sm {
-    width: calc(54.33% - 1rem);
-}
-
-.col-8-sm {
-    width: calc(62.66% - 1rem);
-}
-
-.col-9-sm {
-    width: calc(71% - 1rem);
-}
-
-.col-10-sm {
-    width: calc(79.33% - 1rem);
-}
-
-.col-11-sm {
-    width: calc(87.66% - 1rem);
-}
-
-.col-12-sm {
-    width: calc(96% - 1rem);
+  flex: 0 1 calc(100% / 12 * 12) !important;
 }
 
 .row::after {
-    content: "";
-    flex: auto;
+  content: "";
+  flex: 0 1 auto;
 }
 
-.hidden-sm {
-    display: none;
+/* ==== VISIBILITY ==== */
+
+.is-hidden {
+  display: none;
 }
 
-@media only screen and (min-width: 33.75em) {
-
-    /* 540px */
-    .container {
-        width: 80%;
-    }
+.is-hidden-mobile {
+  display: none;
 }
 
-@media only screen and (min-width: 45em) {
-
-    /* 720px */
-    .col-1,
-    .col-2,
-    .col-3,
-    .col-4,
-    .col-5,
-    .col-6,
-    .col-7,
-    .col-8,
-    .col-9,
-    .col-10,
-    .col-11,
-    .col-12 {
-        width: calc((100% - 2rem) / 12);
-    }
-
-    .hidden-sm {
-        display: block;
-    }
+.is-hidden-tablet {
+  display: none;
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 540px) {
+  /* mobile-first */
+}
 
-    /* 960px */
-    .container {
-        width: 75%;
-        max-width: 60rem;
-    }
+@media only screen and (min-width: 720px) {
+  .is-hidden-mobile {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .is-hidden-tablet {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1820px) {
+  .container {
+    max-width: 1820px;
+  }
 }
 
 /* ==== HELPERS ==== */
 
-.is-vcentered {
-    display: flex !important;
-    align-items: center !important;
+.is-left-aligned {
+  text-align: left;
 }
 
+.is-right-aligned {
+  text-align: right;
+}
 
+.is-center-aligned {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+.is-justified {
+  text-align: justify;
+} 
 
+.is-vcentered {
+  display: flex !important;
+  align-items: center !important;
+}
