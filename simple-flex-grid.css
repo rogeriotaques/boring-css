@@ -9,14 +9,13 @@
 
 html,
 body {
-    width: 100vw;
-    margin: 0;
-    padding: 0;
-    font-size: 100%;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
 }
 
 /* ==== GRID SYSTEM ==== */
-
 .container {
   width: calc(100% - 32px);
   min-width: 320px;
@@ -31,6 +30,11 @@ body {
   align-items: flex-start;
   
   gap: 0px; /* default to gap-less */
+}
+
+.row::after {
+  content: "";
+  flex: 0 1 auto;
 }
 
 .row.gap-1 {
@@ -53,7 +57,7 @@ body {
   gap: 20px;
 }
 
-.row [class^="col"] {
+.row [class*="col"] {
   box-sizing: border-box;
   min-height: 8px;
   margin: 0;
@@ -109,9 +113,48 @@ body {
   flex: 0 1 calc(100% / 12 * 12) !important;
 }
 
-.row::after {
-  content: "";
-  flex: 0 1 auto;
+.is-offset-1 {
+  margin-left: calc(100% / 12) !important;
+}
+
+.is-offset-2 {
+  margin-left: calc(100% / 12 * 2) !important;
+}
+
+.is-offset-3 {
+  margin-left: calc(100% / 12 * 3) !important;
+}
+
+.is-offset-4 {
+  margin-left: calc(100% / 12 * 4) !important;
+}
+
+.is-offset-5 {
+  margin-left: calc(100% / 12 * 5) !important;
+}
+
+.is-offset-6 {
+  margin-left: calc(100% / 12 * 6) !important;
+}
+
+.is-offset-7 {
+  margin-left: calc(100% / 12 * 7) !important;
+}
+
+.is-offset-8 {
+  margin-left: calc(100% / 12 * 8) !important;
+}
+
+.is-offset-9 {
+  margin-left: calc(100% / 12 * 9) !important;
+}
+
+.is-offset-10 {
+  margin-left: calc(100% / 12 * 10) !important;
+}
+
+.is-offset-11 {
+  margin-left: calc(100% / 12 * 11) !important;
 }
 
 /* ==== VISIBILITY ==== */
