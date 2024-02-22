@@ -3,7 +3,7 @@
  * A simple flexbox grid system based on the Simple Grid by Zach Cole.
  *
  * @author: Rogerio Taques
- * @version: 1.0.1
+ * @version: 1.0.3
  * @license: MIT
  */
 
@@ -26,7 +26,7 @@ body {
   width: 100%;
   padding: 0;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: flex-start;
   
   gap: 0px; /* default to gap-less */
@@ -34,7 +34,7 @@ body {
 
 .row::after {
   content: "";
-  flex: 0 1 auto;
+  flex: 0 0 auto;
 }
 
 .row.gap-1 {
@@ -62,99 +62,7 @@ body {
   min-height: 8px;
   margin: 0;
   padding: 0;
-  flex: 1 0 auto;
-}
-
-.col-1 {
-  flex: 0 0 calc(100% / 12) !important;
-}
-
-.col-2 {
-  flex: 0 1 calc(100% / 12 * 2) !important;
-}
-
-.col-3 {
-  flex: 0 1 calc(100% / 12 * 3) !important;
-}
-
-.col-4 {
-  flex: 0 1 calc(100% / 12 * 4) !important;
-}
-
-.col-5 {
-  flex: 0 1 calc(100% / 12 * 5) !important;
-}
-
-.col-6 {
-  flex: 0 1 calc(100% / 12 * 6) !important;
-}
-
-.col-7 {
-  flex: 0 1 calc(100% / 12 * 7) !important;
-}
-
-.col-8 {
-  flex: 0 1 calc(100% / 12 * 8) !important;
-}
-
-.col-9 {
-  flex: 0 1 calc(100% / 12 * 9) !important;
-}
-
-.col-10 {
-  flex: 0 1 calc(100% / 12 * 10) !important;
-}
-
-.col-11 {
-  flex: 0 1 calc(100% / 12 * 11) !important;
-}
-
-.col-12 {
-  flex: 0 1 calc(100% / 12 * 12) !important;
-}
-
-.is-offset-1 {
-  margin-left: calc(100% / 12) !important;
-}
-
-.is-offset-2 {
-  margin-left: calc(100% / 12 * 2) !important;
-}
-
-.is-offset-3 {
-  margin-left: calc(100% / 12 * 3) !important;
-}
-
-.is-offset-4 {
-  margin-left: calc(100% / 12 * 4) !important;
-}
-
-.is-offset-5 {
-  margin-left: calc(100% / 12 * 5) !important;
-}
-
-.is-offset-6 {
-  margin-left: calc(100% / 12 * 6) !important;
-}
-
-.is-offset-7 {
-  margin-left: calc(100% / 12 * 7) !important;
-}
-
-.is-offset-8 {
-  margin-left: calc(100% / 12 * 8) !important;
-}
-
-.is-offset-9 {
-  margin-left: calc(100% / 12 * 9) !important;
-}
-
-.is-offset-10 {
-  margin-left: calc(100% / 12 * 10) !important;
-}
-
-.is-offset-11 {
-  margin-left: calc(100% / 12 * 11) !important;
+  flex: 1 0 100%;
 }
 
 /* ==== VISIBILITY ==== */
@@ -171,17 +79,122 @@ body {
   display: none;
 }
 
-@media only screen and (min-width: 540px) {
-  /* mobile-first */
-}
+/* ==== BREAKPOINTS ====
+   Mobile: up to 768px
+   Tablet: up to 1024px
+   Desktop: up to 1216px 
+   FullHD: up to 1408px 
+   ===================== */
 
-@media only screen and (min-width: 720px) {
+/* Tablets - 769px ~ 1024px */
+@media only screen and (min-width: 769px) {
+  .container {
+    max-width: 768px;
+  }
+
+  .row [class*="col"] {
+    flex: 1 0 auto;
+  }
+
+  .col-1 {
+    flex: 0 0 calc(100% / 12) !important;
+  }
+
+  .col-2 {
+    flex: 0 1 calc(100% / 12 * 2) !important;
+  }
+
+  .col-3 {
+    flex: 0 1 calc(100% / 12 * 3) !important;
+  }
+
+  .col-4 {
+    flex: 0 1 calc(100% / 12 * 4) !important;
+  }
+
+  .col-5 {
+    flex: 0 1 calc(100% / 12 * 5) !important;
+  }
+
+  .col-6 {
+    flex: 0 1 calc(100% / 12 * 6) !important;
+  }
+
+  .col-7 {
+    flex: 0 1 calc(100% / 12 * 7) !important;
+  }
+
+  .col-8 {
+    flex: 0 1 calc(100% / 12 * 8) !important;
+  }
+
+  .col-9 {
+    flex: 0 1 calc(100% / 12 * 9) !important;
+  }
+
+  .col-10 {
+    flex: 0 1 calc(100% / 12 * 10) !important;
+  }
+
+  .col-11 {
+    flex: 0 1 calc(100% / 12 * 11) !important;
+  }
+
+  .col-12 {
+    flex: 0 1 calc(100% / 12 * 12) !important;
+  }
+
+  .is-offset-1 {
+    margin-left: calc(100% / 12) !important;
+  }
+
+  .is-offset-2 {
+    margin-left: calc(100% / 12 * 2) !important;
+  }
+
+  .is-offset-3 {
+    margin-left: calc(100% / 12 * 3) !important;
+  }
+
+  .is-offset-4 {
+    margin-left: calc(100% / 12 * 4) !important;
+  }
+
+  .is-offset-5 {
+    margin-left: calc(100% / 12 * 5) !important;
+  }
+
+  .is-offset-6 {
+    margin-left: calc(100% / 12 * 6) !important;
+  }
+
+  .is-offset-7 {
+    margin-left: calc(100% / 12 * 7) !important;
+  }
+
+  .is-offset-8 {
+    margin-left: calc(100% / 12 * 8) !important;
+  }
+
+  .is-offset-9 {
+    margin-left: calc(100% / 12 * 9) !important;
+  }
+
+  .is-offset-10 {
+    margin-left: calc(100% / 12 * 10) !important;
+  }
+
+  .is-offset-11 {
+    margin-left: calc(100% / 12 * 11) !important;
+  }
+
   .is-hidden-mobile {
     display: block;
   }
 }
 
-@media only screen and (min-width: 960px) {
+/* Desktops - 1025px ~ 1216px */
+@media only screen and (min-width: 1025px) {
   .container {
     max-width: 960px;
   }
@@ -191,9 +204,17 @@ body {
   }
 }
 
-@media only screen and (min-width: 1820px) {
+/* FullHD - 1217px ~ 1408px */
+@media only screen and (min-width: 1217px) {
   .container {
-    max-width: 1820px;
+    max-width: 1025px;
+  }
+}
+
+/* Wide screens - 1409px ~ */
+@media only screen and (min-width: 1409px) {
+  .container {
+    max-width: 1217px;
   }
 }
 
