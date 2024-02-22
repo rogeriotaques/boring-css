@@ -44,7 +44,7 @@ It has a limited number of components, the most used ones.
 
 ### Do you need a grid system?
 
-If you need a grid system, you can use [Simple Grid](https://simplegrid.io/), as it is lightweight and very easy to use. By the way, you can find it in this repository as `simple-grid.css`.
+If you need a grid system, you can use [Simple Grid](https://simplegrid.io/), as it is lightweight and very easy to use. By the way, you can find a slightly modified version of it, cleaned up to remove anything not related to the grid, in this repository as [`simple-grid.css`](./simple-grid.css).
 
 ## Contributing
 
