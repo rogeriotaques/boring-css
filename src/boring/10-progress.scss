@@ -1,0 +1,77 @@
+@use "sass:math";
+
+@keyframes infinite-progress {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.progress {
+  position: relative;
+  display: inline-block;
+  background-color: transparent;
+  border: var(--s-border-width) solid var(--c-grey-dark);
+  border-radius: var(--s-border-radius);
+  box-shadow: var(--s-box-shadow) var(--c-grey-dark);
+  line-height: 28px;
+  width: calc(100% - 4px);
+  height: 36px;
+  padding: var(--s-border-width) 8px;
+  margin: 0 0 8px;
+  overflow: hidden;
+  font-weight: 700;
+  z-index: 3;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    background-color: var(--c-success);
+    z-index: -1;
+  }
+
+  &--infinite::before {
+    animation: infinite-progress 1.2s linear infinite;
+  }
+
+  @for $i from 0 through 100 {
+    &--#{$i}::before {
+      width: math.percentage(math.div($i, 100));
+    }
+  }
+
+  &--dark::before {
+    background-color: var(--c-grey);
+  }
+
+  &--warning::before {
+    background-color: var(--c-warning);
+  }
+
+  &--danger::before {
+    background-color: var(--c-danger);
+  }
+
+  &--info::before {
+    background-color: var(--c-info);
+  }
+}
+
+[data-mode="dark"] {
+  .progress {
+    border-color: var(--c-smoke);
+    box-shadow: var(--s-box-shadow) var(--c-white);
+    text-shadow: none;
+
+    &::before {
+      opacity: 0.9;
+    }
+  }
+}

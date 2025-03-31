@@ -1,0 +1,107 @@
+@use "00-variables" as *;
+
+.card {
+  display: inline-block;
+  background-color: var(--c-white);
+  border: var(--s-border-width) solid var(--c-grey-dark);
+  border-radius: var(--s-border-radius);
+  margin: 0 0 8px;
+  box-shadow: var(--s-box-shadow) var(--c-grey-dark);
+  width: calc(100% - 4px);
+  overflow: hidden;
+
+  transition: box-shadow 0.1s ease, transform 0.1s ease,
+    background-color 0.1s ease;
+
+  @media screen and (min-width: #{$mobile-up}) {
+    max-width: 375px;
+  }
+
+  &__header {
+    background-color: var(--c-background-disabled);
+    margin-bottom: 0;
+    width: 100%;
+
+    > h1,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+      font-size: 28px;
+      line-height: 1.5;
+    }
+
+    > img {
+      height: auto;
+      display: block;
+    }
+
+    > *:not(img) {
+      display: block;
+      padding: 16px;
+      margin: 0;
+    }
+  }
+
+  &__body {
+    padding: 16px;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top: var(--s-border-width) solid var(--c-black-pure);
+  }
+
+  &__link {
+    flex: 1 1 auto;
+    color: var(--c-black-pure);
+    display: inline-block;
+    padding: 8px 16px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+
+    transition: background-color 0.15s ease;
+
+    + .card__link {
+      border-left: var(--s-border-width) solid var(--c-black-pure);
+    }
+
+    &:hover {
+      color: var(--c-grey-dark);
+      background-color: var(--c-background-disabled);
+    }
+  }
+}
+
+[data-mode="dark"] {
+  .card {
+    background-color: var(--c-black);
+    border-color: var(--c-smoke);
+    box-shadow: var(--s-box-shadow) var(--c-white);
+
+    &__header {
+      background-color: var(--c-grey-dark);
+    }
+
+    &__footer {
+      border-top-color: var(--c-white);
+    }
+
+    &__link {
+      color: var(--c-white);
+
+      + .card__link {
+        border-left: var(--s-border-width) solid var(--c-white);
+      }
+
+      &:hover {
+        color: var(--c-grey-dark);
+        background-color: var(--c-white);
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.box {
+  display: inline-block;
+  background-color: var(--c-white);
+  border: var(--s-border-width) solid var(--c-grey-dark);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 0 0 8px;
+  box-shadow: var(--s-box-shadow) var(--c-grey-dark);
+  width: calc(100% - 4px);
+}
+
+[data-mode="dark"] .box {
+  background-color: var(--c-grey-dark);
+  border-color: var(--c-smoke);
+  box-shadow: var(--s-box-shadow) var(--c-white);
+}

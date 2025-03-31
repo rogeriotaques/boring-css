@@ -1,0 +1,68 @@
+.badge {
+  display: inline-block;
+  color: var(--c-grey-dark);
+  background-color: var(--c-white);
+  border: var(--s-border-width-thin) solid var(--c-grey);
+  border-radius: var(--s-border-radius);
+  padding: 4px 8px;
+  margin: 0 4px 8px 0;
+  min-width: 65px;
+  text-align: center;
+  cursor: default;
+  font-size: 14px;
+  font-weight: 400;
+
+  &--success {
+    color: var(--c-white);
+    background-color: var(--c-success);
+    border-color: var(--c-success);
+  }
+
+  &--warning {
+    color: var(--c-white);
+    background-color: var(--c-warning);
+    border-color: var(--c-warning);
+  }
+
+  &--danger {
+    color: var(--c-white);
+    background-color: var(--c-danger);
+    border-color: var(--c-danger);
+  }
+
+  &--dark {
+    color: var(--c-white);
+    background-color: var(--c-grey);
+    border-color: var(--c-grey);
+  }
+}
+
+[data-mode="dark"] .badge {
+  color: var(--c-smoke);
+  background-color: var(--c-black);
+  border: var(--s-border-width) solid var(--c-white);
+
+  &--success {
+    color: var(--c-success);
+    background-color: var(--c-success-background);
+    border-color: var(--c-success);
+  }
+
+  &--warning {
+    color: var(--c-black);
+    background-color: var(--c-warning-background);
+    border-color: var(--c-warning);
+  }
+
+  &--danger {
+    color: var(--c-danger);
+    background-color: var(--c-danger-background);
+    border-color: var(--c-danger);
+  }
+
+  &--dark {
+    color: var(--c-black);
+    background-color: var(--c-smoke);
+    border-color: var(--c-white);
+  }
+}

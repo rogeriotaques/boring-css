@@ -1,50 +1,73 @@
-html {
-    background-color: white;
+html,
+body {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-    display: block;
-    margin: 0 auto;
+  display: block;
+  margin: 0 auto;
+  padding: 16px 24px;
 }
 
 .title {
-    margin-bottom: 0;
+  margin-bottom: 8px;
 }
-
 .title + .subtitle {
-    margin-top: 0;
+  margin-top: 0;
 }
 
-/* GitHub Badge */
+article,
+section {
+  padding: 8px 0;
+}
+article + article,
+article + section,
+section + article,
+section + section {
+  border-top: var(--s-border-width-thin) solid var(--c-border);
+}
+
+[data-mode=dark] article + article,
+[data-mode=dark] section + section {
+  border-top-color: var(--c-grey);
+}
+
 .github-badge {
-    position: fixed;
-    top: 60px;
-    right: -10px;
-    display: flex;
-    align-items: center;
-    font-family: 'Arial', sans-serif;
-    transform: rotate(45deg);
-    backdrop-filter: blur(5px);
-    z-index: 100;
+  transition: background-color 0.15s ease;
+  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.25);
+  background-color: #333;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
-
-.github-badge a {
-    text-decoration: none;
-    color: #333;
-    display: flex;
-    align-items: center;
+.github-badge:hover {
+  background-color: greenyellow;
 }
-
-.github-badge img {
-    width: 24px;
-    height: 24px;
-    margin-right: 5px;
+.github-badge:hover > a {
+  color: #333 !important;
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
 }
-
-.github-badge:hover img {
-    filter: brightness(120%);
+.github-badge:hover > a::before {
+  content: unset;
 }
-
-.github-badge:hover a {
-    color: #4183C4;
+.github-badge:hover > a img {
+  filter: brightness(120%);
 }
+.github-badge > a {
+  transition: color 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #fff !important;
+  padding: 8px 16px !important;
+  border: 0 !important;
+  text-decoration: none;
+}
+.github-badge > a img {
+  width: 24px;
+  height: 24px;
+}
+/*# sourceMappingURL=page.css.map */

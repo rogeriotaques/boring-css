@@ -16,7 +16,11 @@
     <link rel="stylesheet" href="boring.css" />
     <link rel="stylesheet" href="page.css" />
 
-    <script async src="https://cyanstats.com/cs.js" data-token="fTzKTaHwZ3kB"></script>
+    <script
+      async
+      src="https://cyanstats.com/cs.js"
+      data-token="fTzKTaHwZ3kB"
+    ></script>
   </head>
   <body>
     <div class="github-badge">
@@ -26,7 +30,11 @@
         rel="noopener noreferrer"
         data-cyanstats-event="View on Github"
       >
-        <img src="https://github.com/fluidicon.png" alt="GitHub Icon" class="icon" />
+        <img
+          src="https://github.com/fluidicon.png"
+          alt="GitHub Icon"
+          class="icon"
+        />
         View on GitHub
       </a>
     </div>
@@ -36,16 +44,27 @@
         <h1 class="title">The Boring CSS</h1>
 
         <p class="subtitle">
-          A <a href="https://getbem.com/" target="_blank" rel="noopener noreferrer">BEM</a> based set of classes to
-          style your pages in an authentic <b>NeuBrutalism</b> way. <b>It's free, use it with care.</b>
+          A
+          <a
+            href="https://getbem.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >BEM</a
+          >
+          based set of classes to style your pages in an authentic
+          <b>NeuBrutalism</b> way. <b>It's free, use it with care.</b>
         </p>
 
         <p>
-          <span class="badge badge--success">Version 1.2.0</span>
+          <span class="badge badge--success">Version 1.3.0</span>
         </p>
 
         <p>
-          <button class="button theme-switcher" role="toggle" data-cyanstats-event="Mode Switcher - Head">
+          <button
+            class="button theme-switcher"
+            role="toggle"
+            data-cyanstats-event="Mode Switcher - Head"
+          >
             Toogle mode <span class="status">...</span>
           </button>
         </p>
@@ -67,12 +86,14 @@
         <h3>What is it not?</h3>
 
         <p>
-          It's not a framework, does not have a grid system, and it has a very limited number of components. But it is
-          still very cool 😎 and helps you building visually attractive UIs for your website or web application with
-          peace of mind.
+          It's not a framework, does not have a grid system, and it has a very
+          limited number of components. But it is still very cool 😎 and helps
+          you building visually attractive UIs for your website or web
+          application with peace of mind.
         </p>
         <p>
-          If you need a grid system to use along-with <b>Boring CSS</b>, I recommend you the
+          If you need a grid system to use along-with <b>Boring CSS</b>, I
+          recommend you the
           <a
             href="simple-grid.css"
             target="_blank"
@@ -85,7 +106,10 @@
         <h3>Dark mode ready</h3>
 
         <p>Yes! It supports dark mode already! 🎉</p>
-        <p>You just need to add <code>data-mode="dark"</code> in the <code>&lt;html /&gt;</code> tag.</p>
+        <p>
+          You just need to add <code>data-mode="dark"</code> in the
+          <code>&lt;html /&gt;</code> tag.
+        </p>
       </article>
 
       <article class="components">
@@ -102,15 +126,11 @@
             <span class="badge badge--dark">Badge</span>
           </div>
 
-          <br />
-
           <h5>Use:</h5>
 
           <pre>
 &lt;span class="badge"&gt;Badge&lt;/span&gt;
           </pre>
-
-          <br />
 
           <h5>Available modifiers:</h5>
 
@@ -130,12 +150,10 @@
             <p>A box is a container for any kind of content.</p>
           </div>
 
-          <br /><br />
-
           <h5>Use:</h5>
 
           <pre>
-&lt;span class="box"&gt;Badge&lt;/span&gt;
+&lt;div class="box"&gt;This is a box&lt;/div&gt;
           </pre>
         </section>
 
@@ -151,8 +169,6 @@
             <a href="#" class="button button--disabled">Link Button</a>
           </div>
 
-          <br />
-
           <h5>Use:</h5>
 
           <pre>
@@ -163,12 +179,10 @@
 &lt;a href="#" class="button"&gt;Button&lt;/button&gt;
           </pre>
 
-          <br />
-          <br />
-
           <p>
-            To disable a button, simply add <code>disabled</code> attribute for <code>buttons</code> and
-            <code>button--disabled</code> class modifier for <code>a</code> tags.
+            To disable a button, simply add <code>disabled</code> attribute for
+            <code>buttons</code> and <code>button--disabled</code> class
+            modifier for <code>a</code> tags.
           </p>
         </section>
 
@@ -180,16 +194,16 @@
               <h3>This is a card header.</h3>
             </div>
             <div class="card__body">
-              <p>A card is like a box, but it can be made with a <b>header</b> + <b>footer</b>, both optional.</p>
+              <p>
+                A card is like a box, but it can be made with a <b>header</b> +
+                <b>footer</b>, both optional.
+              </p>
             </div>
             <div class="card__footer">
               <a href="#" class="card__link">Link</a>
               <a href="#" class="card__link">Link</a>
             </div>
           </div>
-
-          <br />
-          <br />
 
           <h5>Use:</h5>
 
@@ -212,11 +226,55 @@
         <section id="images">
           <h3>Images</h3>
 
-          <img src="https://picsum.photos/200/300" alt="Random image" />
-          <img src="https://picsum.photos/300/200" alt="Random image" />
+          <p>Images do not need any special class to be styled.</p>
 
+          <img src="https://picsum.photos/200/300" alt="Random image" />
           <br />
+          <img src="https://picsum.photos/300/200" alt="Random image" />
           <br />
+          <img
+            src="https://i.pravatar.cc/200"
+            alt="Random avatar"
+            class="avatar"
+          />
+
+          <h5>Available modifiers:</h5>
+
+          <ul>
+            <li><code>avatar</code></li>
+          </ul>
+
+          <div>
+            <p>
+              Grouped avatars can be created by simplly adding more images in
+              sequence.
+            </p>
+            <img
+              src="https://i.pravatar.cc/56?img=5"
+              alt="Random avatar"
+              class="avatar"
+            />
+            <img
+              src="https://i.pravatar.cc/56?img=6"
+              alt="Random avatar"
+              class="avatar"
+            />
+            <img
+              src="https://i.pravatar.cc/56?img=50"
+              alt="Random avatar"
+              class="avatar"
+            />
+            <img
+              src="https://i.pravatar.cc/56?img=25"
+              alt="Random avatar"
+              class="avatar"
+            />
+            <img
+              src="https://i.pravatar.cc/56?img=8"
+              alt="Random avatar"
+              class="avatar"
+            />
+          </div>
 
           <h5>Use:</h5>
 
@@ -259,8 +317,6 @@
             <textarea class="input" placeholder="Textarea"></textarea>
           </div>
 
-          <br />
-
           <h5>Use:</h5>
 
           <pre>
@@ -268,23 +324,20 @@
   &lt;input type="text" placeholder="Text Input" /&gt;
 &lt;/div&gt;
 
-&lt;-- OR --&gt;
+&lt;!-- OR --&gt;
 
 &lt;div class="input"&gt;
   &lt;select&gt;
     &lt;option value=""&gt;Select&lt;/option&gt;
-  &lt;/select&gt; 
+  &lt;/select&gt;
 &lt;/div&gt;
 
-&lt;-- OR --&gt;
+&lt;!-- OR --&gt;
 
 &lt;div class="input"&gt;
   &lt;textarea class="input" placeholder="Textarea"&gt;&lt;/textarea&gt;
 &lt;/div&gt;
           </pre>
-
-          <br />
-          <br />
 
           <h5>Available modifiers:</h5>
 
@@ -293,8 +346,6 @@
             <li><code>input--warning</code></li>
             <li><code>input--error</code></li>
           </ul>
-
-          <br />
 
           <h4>Check boxes and radios</h4>
 
@@ -320,8 +371,6 @@
             <label for="radio_2">Radio</label>
           </div>
 
-          <br />
-
           <h5>Use:</h5>
 
           <pre>
@@ -330,15 +379,13 @@
   &lt;label for="checkbox_1"&gt;Checkbox checked&lt;/label&gt;
 &lt;/div&gt;
 
-&lt;-- OR --&gt;
+&lt;!-- OR --&gt;
 
 &lt;div class="input input--radio"&gt;
   &lt;input type="radio" name="radio" id="radio_1" checked /&gt;
   &lt;label for="radio_1"&gt;Radio checked&lt;/label&gt;
 &lt;/div&gt;
           </pre>
-
-          <br /><br />
 
           <h4>With label</h4>
 
@@ -347,8 +394,6 @@
             <label for="input">Name</label>
             <input type="text" id="input" placeholder="Text Input" />
           </div>
-
-          <br />
 
           <h5>Use:</h5>
 
@@ -359,9 +404,6 @@
 &lt;/div&gt;
           </pre>
 
-          <br />
-          <br />
-
           <h4>With helpers</h4>
 
           <!-- With helpers -->
@@ -369,8 +411,6 @@
             <input type="text" placeholder="Text Input" />
             <p class="input__helper">This is a helper text.</p>
           </div>
-
-          <br />
 
           <h5>Use:</h5>
 
@@ -380,9 +420,6 @@
   &lt;p class="input__helper"&gt;This is a helper text.&lt;/p&gt;
 &lt;/div&gt;
           </pre>
-
-          <br />
-          <br />
 
           <h4>With add-ons</h4>
 
@@ -404,8 +441,6 @@
             </select>
           </div>
 
-          <br />
-
           <h5>Use:</h5>
 
           <pre>
@@ -414,14 +449,14 @@
   &lt;input type="text" placeholder="Text Input" /&gt;
 &lt;/div&gt;
 
-&lt;-- OR --&gt;
+&lt;!-- OR --&gt;
 
 &lt;div class="input input--with-addons"&gt;
   &lt;input type="text" placeholder="Text Input" /&gt;
   &lt;p class="input__addon"&gt;@gmail.com&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;-- OR --&gt;
+&lt;!-- OR --&gt;
 
 &lt;div class="input input--with-addons"&gt;
   &lt;input type="text" placeholder="Text Input" /&gt;
@@ -430,9 +465,6 @@
   &lt;/select&gt;
 &lt;/div&gt;
           </pre>
-
-          <br />
-          <br />
 
           <h4>Grouped</h4>
 
@@ -448,8 +480,6 @@
             <input type="text" placeholder="Text Input" />
           </div>
 
-          <br />
-
           <h5>Use:</h5>
 
           <pre>
@@ -458,7 +488,7 @@
   &lt;input type="text" placeholder="Text Input" /&gt;
 &lt;/div&gt;
 
-&lt;-- OR --&gt;
+&lt;!-- OR --&gt;
 
 &lt;div class="input input--grouped"&gt;
   &lt;input type="text" placeholder="Text Input" /&gt;
@@ -487,8 +517,6 @@
             <li>List item</li>
           </ol>
 
-          <br />
-
           <h5>Use:</h5>
 
           <pre>
@@ -498,7 +526,7 @@
   &lt;li&gt;List item&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;-- OR --&gt;
+&lt;!-- OR --&gt;
 
 &lt;ol&gt;
   &lt;li&gt;List item&lt;/li&gt;
@@ -511,34 +539,34 @@
         <section id="tables">
           <h3>Tables</h3>
 
-          <table>
-            <thead>
-              <tr>
-                <th>User name</th>
-                <th>Email</th>
-                <th>Phone</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>John McLane</td>
-                <td>mclane@diehard.movie</td>
-                <td>1 234 5678 900</td>
-              </tr>
-              <tr>
-                <td>Luke Skywalker</td>
-                <td>l.skywalker@startwars.movie</td>
-                <td>123 4567 8901</td>
-              </tr>
-              <tr>
-                <td>Tony Stark</td>
-                <td>tony@starkindustries.movie</td>
-                <td>12 3456 7890</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <br />
+          <figure>
+            <table>
+              <thead>
+                <tr>
+                  <th>User name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John McLane</td>
+                  <td>mclane@diehard.movie</td>
+                  <td>1 234 5678 900</td>
+                </tr>
+                <tr>
+                  <td>Luke Skywalker</td>
+                  <td>l.skywalker@startwars.movie</td>
+                  <td>123 4567 8901</td>
+                </tr>
+                <tr>
+                  <td>Tony Stark</td>
+                  <td>tony@starkindustries.movie</td>
+                  <td>12 3456 7890</td>
+                </tr>
+              </tbody>
+            </table>
+          </figure>
 
           <h5>Use:</h5>
 
@@ -547,9 +575,9 @@
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th&gt;User name&lt;/th&gt;
-      &lt;th&gt;Email&lt;/th&gt;  
-      &lt;th&gt;Phone&lt;/th&gt;  
-    &lt;/tr&gt; 
+      &lt;th&gt;Email&lt;/th&gt;
+      &lt;th&gt;Phone&lt;/th&gt;
+    &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
@@ -561,20 +589,24 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
           </pre>
-
-          <br />
         </section>
 
         <section id="notifications">
           <h3>Notifications</h3>
 
           <div class="notification">This is a notification block.</div>
-          <div class="notification notification--success">This is a success notification block.</div>
-          <div class="notification notification--warning">This is a warning notification block.</div>
-          <div class="notification notification--error">This is an error notification block.</div>
-          <div class="notification notification--info">This is an info notification block.</div>
-
-          <br />
+          <div class="notification notification--success">
+            This is a success notification block.
+          </div>
+          <div class="notification notification--warning">
+            This is a warning notification block.
+          </div>
+          <div class="notification notification--error">
+            This is an error notification block.
+          </div>
+          <div class="notification notification--info">
+            This is an info notification block.
+          </div>
 
           <h5>Use:</h5>
 
@@ -583,8 +615,6 @@
   This is a notification block.
 &lt;/div&gt;
           </pre>
-
-          <br />
 
           <h5>Available modifiers:</h5>
 
@@ -600,7 +630,8 @@
           <h3>Code</h3>
 
           <p>
-            <code>This is how the content of a &lt;code /&gt; tag looks like.</code>
+            This is how the content of a <code>&lt;code /&gt;</code> tag looks
+            like.
           </p>
 
           <h3>Pre</h3>
@@ -614,9 +645,11 @@
 
         <section id="progress">
           <h3>Progress</h3>
-          <div class="progress progress--75">75%</div>
 
-          <br />
+          <div class="progress progress--1">1%</div>
+          <div class="progress progress--50">50%</div>
+          <div class="progress progress--75">75%</div>
+          <div class="progress progress--infinite"></div>
 
           <h5>Use:</h5>
 
@@ -624,32 +657,36 @@
 &lt;div class="progress progress--75"&gt;75%&lt;/div&gt;
           </pre>
 
-          <br />
-          <br />
-
-          <h5>Available modifiers:</h5>
+          <h5>Available modifiers for progress:</h5>
 
           <ul>
-            <li><code>progress--0</code></li>
-            <li><code>progress--25</code></li>
-            <li><code>progress--50</code></li>
-            <li><code>progress--75</code></li>
-            <li><code>progress--100</code></li>
+            <li><code>progress--&lt;number&gt;</code></li>
+            <li>E.g. <code>progress--5</code></li>
+            <li>E.g. <code>progress--75</code></li>
+            <li>E.g. <code>progress--100</code></li>
+            <li>E.g. <code>progress--infinite</code></li>
           </ul>
 
-          <br />
+          <h5>Available modifiers for colors:</h5>
 
-          <div class="progress progress--infinite"></div>
-
-          <br />
-
-          <h5>Use:</h5>
-
-          <pre>
-&lt;div class="progress progress--infinite"&gt;&lt;/div&gt;
-          </pre>
-
-          <br />
+          <ul>
+            <li>
+              <code>progress--warning</code>
+              <div class="progress progress--warning"></div>
+            </li>
+            <li>
+              <code>progress--danger</code>
+              <div class="progress progress--danger"></div>
+            </li>
+            <li>
+              <code>progress--info</code>
+              <div class="progress progress--info"></div>
+            </li>
+            <li>
+              <code>progress--dark</code>
+              <div class="progress progress--dark"></div>
+            </li>
+          </ul>
         </section>
 
         <section id="tooltips">
@@ -657,49 +694,79 @@
 
           <p>Hover over the texts below to see the tooltips in action!</p>
 
-          <br />
-
           <p class="notification notification--info">
-            The tooltip may show on the opposite site, if the trigger is too close to the edge of the screen.
+            The tooltip may show on the opposite site, if the trigger is too
+            close to the edge of the screen.
           </p>
 
-          <br />
-          <br />
-          <br />
-
           <div style="text-align: center">
-            <div style="width: auto; display: inline-block; padding: 16px; margin-right: 16px">
-              <p style="cursor: pointer" class="has-tooltip has-tooltip--left" data-tooltip="Shows on the left">Left</p>
+            <div style="width: auto; display: inline-block; padding: 16px">
+              <p
+                style="cursor: pointer"
+                class="has-tooltip has-tooltip--right"
+                data-tooltip="Show on the right"
+              >
+                Right
+              </p>
             </div>
-            <div style="width: auto; display: inline-block; padding: 16px; margin-right: 16px">
-              <p style="cursor: pointer" class="has-tooltip has-tooltip--top" data-tooltip="Shows on the top">Top</p>
+            <div
+              style="
+                width: auto;
+                display: inline-block;
+                padding: 16px;
+                margin-right: 16px;
+              "
+            >
+              <p
+                style="cursor: pointer"
+                class="has-tooltip has-tooltip--top"
+                data-tooltip="Shows on the top"
+              >
+                Top
+              </p>
             </div>
-            <div style="width: auto; display: inline-block; padding: 16px; margin-right: 16px">
-              <p style="cursor: pointer" class="has-tooltip has-tooltip--bottom" data-tooltip="Show at the bottom">
+            <div
+              style="
+                width: auto;
+                display: inline-block;
+                padding: 16px;
+                margin-right: 16px;
+              "
+            >
+              <p
+                style="cursor: pointer"
+                class="has-tooltip has-tooltip--bottom"
+                data-tooltip="Show at the bottom"
+              >
                 Bottom
               </p>
             </div>
-            <div style="width: auto; display: inline-block; padding: 16px">
-              <p style="cursor: pointer" class="has-tooltip has-tooltip--right" data-tooltip="Show on the right">
-                Right
+            <div
+              style="
+                width: auto;
+                display: inline-block;
+                padding: 16px;
+                margin-right: 16px;
+              "
+            >
+              <p
+                style="cursor: pointer"
+                class="has-tooltip has-tooltip--left"
+                data-tooltip="Shows on the left"
+              >
+                Left
               </p>
             </div>
           </div>
 
-          <br />
-          <br />
-          <br />
-
           <h5>Use:</h5>
 
           <pre>
-&lt;p 
+&lt;button 
   class="has-tooltip has-tooltip--left" 
-  data-tooltip="This is the message to be shown on the tooltip"
-&gt; ... &lt;/p&gt;
+  data-tooltip="..."
+&gt; ... &lt;/button&gt;
           </pre>
-
-          <br />
 
           <h5>Available modifiers:</h5>
 
@@ -715,16 +782,20 @@
       <article class="javascript">
         <h2>Javascript</h2>
         <p>
-          Although you are not required to use Javascript with <b>Boring CSS</b> at all, you might want to use it to
-          enhance the user experience (UX) of your website or web apps, for example, to give users the ability to change
-          the color theme, or open/close a modal, etc.
+          Although you are not required to use Javascript with
+          <b>Boring CSS</b> at all, you might want to use it to enhance the user
+          experience (UX) of your website or web apps, for example, to give
+          users the ability to change the color theme, or open/close a modal,
+          etc.
         </p>
 
         <section class="javascript-theme-change">
           <h4>Light-Dark mode switcher</h4>
           <p>
-            The simple Javascript code bellow toggles the <code>data-mode</code> attribute of the
-            <code>&lt;html /&gt;</code> tag on a button (or trigger) click. Use it freely.
+            The simple Javascript code bellow toggles the
+            <code>data-mode</code> attribute of the
+            <code>&lt;html /&gt;</code> tag on a button (or trigger) click. Use
+            it freely.
           </p>
 
           <pre>
@@ -741,28 +812,35 @@
 &lt;/script&gt;
           </pre>
 
-          <br />
-
           <h5>E.g. 👇</h5>
 
           <p>
-            <button class="button theme-switcher" role="toggle" data-cyanstats-event="Mode Switcher - Footer">
+            <button
+              class="button theme-switcher"
+              role="toggle"
+              data-cyanstats-event="Mode Switcher - Footer"
+            >
               Toggle mode <span class="status">...</span>
             </button>
           </p>
 
           <p>
             You may want to use the
-            <a href="boring.js" target="_blank" rel="noopener noreferrer" data-cyanstats-event="Boring JS - Footer"
+            <a
+              href="boring.js"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cyanstats-event="Boring JS - Footer"
               >The Boring JavaScript</a
-            >, a small and simple JavaScript library to help you with some common tasks, like toggling the theme.
+            >, a small and simple JavaScript library to help you with some
+            common tasks, like toggling the theme.
           </p>
         </section>
       </article>
 
       <footer>
         <p>
-          &copy; 2023,
+          2025 &copy;
           <a
             href="https://x.com/rogeriotaques"
             target="_blank"
