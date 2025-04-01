@@ -1,10 +1,13 @@
 /**
- * The Boring CSS
- * A CSS boilerplate for NeoBrutalism styled pages.
- *
- * @author: Rogerio Taques
- * @license: MIT
- */
+* The Boring CSS
+* A CSS boilerplate for NeoBrutalism styled pages.
+*
+* @author: Rogerio Taques
+* @license: MIT
+*/
+
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
 :root {
   color-scheme: light dark;
   /* Natural colors */

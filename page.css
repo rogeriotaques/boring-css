@@ -1,3 +1,12 @@
+/**
+* The Boring CSS
+* A CSS boilerplate for NeoBrutalism styled pages.
+*
+* @author: Rogerio Taques
+* @license: MIT
+*/
+
+@charset "UTF-8";
 html,
 body {
   width: 100vw;
