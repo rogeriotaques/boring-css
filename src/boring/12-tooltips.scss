@@ -1,0 +1,107 @@
+.has-tooltip {
+  position: relative;
+  cursor: inherit;
+
+  &:hover {
+    &::before,
+    &::after {
+      opacity: 1 !important;
+    }
+  }
+
+  &::before,
+  &::after {
+    cursor: default;
+    position: absolute;
+    transition: opacity 0.15s ease-in-out;
+    pointer-events: none;
+  }
+
+  &::before {
+    opacity: 0;
+    content: "";
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px 8px 0 8px;
+    border-style: solid;
+    border-color: var(--c-grey-dark) transparent transparent transparent;
+    z-index: 200;
+  }
+
+  &::after {
+    opacity: 0;
+    content: attr(data-tooltip);
+    top: -8px;
+    left: 50%;
+    background-color: var(--c-smoke);
+    text-align: center;
+    color: var(--c-grey-dark);
+    padding: 8px 16px;
+    width: max-content;
+    min-width: 120px;
+    max-width: 240px;
+    border: 3px solid var(--c-grey-dark);
+    border-radius: 8px;
+    transform: translateX(-50%) translateY(-100%);
+    z-index: 300;
+  }
+
+  &--right {
+    &::before {
+      top: 50%;
+      left: 100%;
+      margin-left: 0;
+      transform: translateY(-50%) rotate(90deg);
+    }
+
+    &::after {
+      top: 50%;
+      left: 100%;
+      margin-left: 12px;
+      transform: translateX(0%) translateY(-50%);
+    }
+  }
+
+  &--bottom {
+    &::before {
+      top: 100%;
+      margin-top: 8px;
+      transform: translateX(-50%) translateY(-100%) rotate(-180deg);
+    }
+
+    &::after {
+      top: 100%;
+      margin-top: 8px;
+      transform: translateX(-50%) translateY(0%);
+    }
+  }
+
+  &--left {
+    &::before {
+      top: 50%;
+      left: 0%;
+      margin-left: -16px;
+      transform: translateY(-50%) rotate(-90deg);
+    }
+
+    &::after {
+      top: 50%;
+      left: 0%;
+      margin-left: -12px;
+      transform: translateX(-100%) translateY(-50%);
+    }
+  }
+}
+
+[data-mode="dark"] .has-tooltip {
+  &::before {
+    border-color: var(--c-smoke) transparent transparent transparent;
+  }
+
+  &::after {
+    background-color: var(--c-grey-dark);
+    border-color: var(--c-smoke);
+    color: var(--c-smoke);
+  }
+}
