@@ -15,7 +15,7 @@
   const DM_STORAGE_KEY = 'darkModeOn';
   const THEME = Object.freeze({ DARK: 'dark', LIGHT: 'light' });
 
-  const oppositeStatusLabel = (on) => (on ? 'OFF' : 'ON');
+  const oppositeStatusLabel = on => (on ? 'OFF' : 'ON');
 
   const emit = {
     events: {},
@@ -27,7 +27,7 @@
 
     publish: (eventName, data) => {
       if (emit.events[eventName]) {
-        emit.events[eventName].forEach((fn) => fn(data));
+        emit.events[eventName].forEach(fn => fn(data));
       }
     },
   };
@@ -39,9 +39,12 @@
     html.setAttribute('data-mode', darkModeOn ? THEME.LIGHT : THEME.DARK);
     localStorage.setItem(DM_STORAGE_KEY, darkModeOn);
 
-    triggers.forEach((trigger) => {
-      const status = trigger.querySelector('.status');
-      if (status) status.innerHTML = oppositeStatusLabel(!darkModeOn);
+    triggers.forEach(trigger => {
+      const darkModeIcon = trigger.querySelector('.icon--dark');
+      const lightModeIcon = trigger.querySelector('.icon--light');
+
+      if (darkModeIcon) darkModeIcon.classList.toggle('is-hidden', !darkModeOn);
+      if (lightModeIcon) lightModeIcon.classList.toggle('is-hidden', darkModeOn);
     });
   };
 
@@ -57,7 +60,7 @@
 
   emit.subscribe('mode-changed', modeChangeHandler);
 
-  triggers.forEach((trigger) => {
+  triggers.forEach(trigger => {
     trigger.addEventListener('click', () => {
       emit.publish('mode-changed');
     });
@@ -70,8 +73,13 @@
   const tooltips = document.querySelectorAll('.has-tooltip');
 
   const handleTooltip = () => {
-    tooltips.forEach((tooltip) => {
-      const curPosClassName = `${tooltip.classList}`.replace('has-tooltip', '').trim();
+    tooltips.forEach(tooltip => {
+      const posClassNames = ['has-tooltip--left', 'has-tooltip--right', 'has-tooltip-top', 'has-tooltip-bottom'];
+      const curPosClassName = `${tooltip.classList}`
+        .split(' ')
+        .filter(name => posClassNames.contains(name))
+        .join(' ')
+        .trim();
 
       tooltip.setAttribute('data-position', curPosClassName);
 
