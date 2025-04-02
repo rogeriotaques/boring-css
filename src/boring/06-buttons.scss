@@ -1,6 +1,10 @@
 button,
 .button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
   background-color: var(--c-white);
   border: var(--s-border-width) solid var(--c-grey-dark);
   border-radius: var(--s-border-radius);
@@ -15,8 +19,7 @@ button,
   outline: none;
   cursor: pointer;
 
-  transition: box-shadow 0.1s ease, transform 0.1s ease,
-    background-color 0.1s ease;
+  transition: box-shadow 0.1s ease, transform 0.1s ease, background-color 0.1s ease;
 
   &:not(:disabled):not(.button--disabled) {
     &:hover,
@@ -43,20 +46,30 @@ button,
     cursor: not-allowed;
   }
 
-  &[type="submit"]:not(:disabled) {
+  &[type='submit']:not(:disabled) {
     color: var(--c-black);
     background-color: var(--c-success-background);
     border-color: var(--c-success);
   }
 
-  &[type="reset"]:not(:disabled) {
+  &[type='reset']:not(:disabled) {
     color: var(--c-black);
     background-color: var(--c-danger-background);
     border-color: var(--c-danger);
   }
+
+  &--auto-width {
+    min-width: auto;
+  }
+
+  > .icon {
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+  }
 }
 
-[data-mode="dark"] {
+[data-mode='dark'] {
   button,
   .button {
     color: var(--c-smoke);
@@ -85,8 +98,8 @@ button,
       text-shadow: none;
     }
 
-    &[type="submit"]:not(:disabled),
-    &[type="reset"]:not(:disabled) {
+    &[type='submit']:not(:disabled),
+    &[type='reset']:not(:disabled) {
       &:hover,
       &:focus,
       &:active {
