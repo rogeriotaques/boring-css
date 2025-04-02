@@ -1,24 +1,24 @@
-const gulp = require("gulp");
-const sass = require("gulp-sass")(require("sass"));
-const header = require("gulp-header");
-const sourcemaps = require("gulp-sourcemaps");
-const browserSync = require("browser-sync").create();
+const gulp = require('gulp');
+const sass = require('gulp-sass')(require('sass'));
+const header = require('gulp-header');
+const sourcemaps = require('gulp-sourcemaps');
+const browserSync = require('browser-sync').create();
 
 const paths = {
-  scss: ["src/*.scss", "!src/boring/**/*.scss"], // Path to your SCSS files
-  css: "./", // Output directory for CSS
+  scss: ['src/*.scss', '!src/boring/**/*.scss'], // Path to your SCSS files
+  css: './', // Output directory for CSS
 };
 
 const headerString = [
-  "/**",
-  "* The Boring CSS",
-  "* A CSS boilerplate for NeoBrutalism styled pages.",
-  "*",
-  "* @author: Rogerio Taques",
-  "* @license: MIT",
-  "*/\n",
+  '/**',
+  '* The Boring CSS',
+  '* A CSS boilerplate for NeoBrutalism styled pages.',
+  '*',
+  '* @author: Rogerio Taques',
+  '* @license: MIT',
+  '*/\n',
   '@charset "UTF-8";\n',
-].join("\n");
+].join('\n');
 
 function compileSass() {
   return gulp
@@ -27,21 +27,21 @@ function compileSass() {
     .pipe(
       sass({
         charset: true,
-        outputStyle: "expanded", // This helps ensure charset is preserved
-      }).on("error", sass.logError)
+        outputStyle: 'expanded', // This helps ensure charset is preserved
+      }).on('error', sass.logError)
     )
     .pipe(header(headerString))
-    .pipe(sourcemaps.write("."))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.css));
 }
 
 function serve() {
   browserSync.init({
-    server: "./", // Serve files from the root directory
+    server: './', // Serve files from the root directory
   });
 
-  gulp.watch(paths.scss, compileSass);
-  gulp.watch(["./*.html", "./*.css"], (done) => {
+  gulp.watch('src/**/*.scss', compileSass);
+  gulp.watch(['./*.html', './*.css'], done => {
     browserSync.reload();
     done();
   });
