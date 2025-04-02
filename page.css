@@ -27,15 +27,25 @@ body {
   margin-top: 0;
 }
 
-article,
+article {
+  padding: 8px 0;
+}
+article + article {
+  border-top: var(--s-border-width) solid var(--c-border);
+}
+
 section {
   padding: 8px 0;
 }
-article + article,
-article + section,
-section + article,
 section + section {
   border-top: var(--s-border-width-thin) solid var(--c-border);
+}
+
+.is-pulled-right {
+  float: right;
+}
+.is-hidden {
+  display: none;
 }
 
 [data-mode=dark] article + article,

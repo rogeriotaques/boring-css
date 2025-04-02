@@ -19,19 +19,39 @@ body {
   }
 }
 
-article,
+article {
+  padding: 8px 0;
+
+  + article {
+    border-top: var(--s-border-width) solid var(--c-border);
+  }
+}
+
 section {
   padding: 8px 0;
 
-  + article,
   + section {
     border-top: var(--s-border-width-thin) solid var(--c-border);
   }
 }
 
-[data-mode="dark"] article + article,
-[data-mode="dark"] section + section {
-  border-top-color: var(--c-grey);
+.is {
+  &-pulled {
+    &-right {
+      float: right;
+    }
+  }
+
+  &-hidden {
+    display: none;
+  }
+}
+
+[data-mode='dark'] {
+  article + article,
+  section + section {
+    border-top-color: var(--c-grey);
+  }
 }
 
 // Github Badge
@@ -49,8 +69,8 @@ section {
 
     > a {
       color: #333 !important;
-      text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
-        1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+      text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, 1px 1px #fff, -1px -1px #fff, 1px -1px #fff,
+        -1px 1px #fff;
 
       &::before {
         content: unset;
