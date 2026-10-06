@@ -1,17 +1,27 @@
 @use "00-variables" as *;
 
 .card {
-  display: inline-block;
+  display: block;
   background-color: var(--c-white);
   border: var(--s-border-width) solid var(--c-grey-dark);
   border-radius: var(--s-border-radius);
-  margin: 0 0 8px;
+  margin: 0 0 var(--s-space-2);
   box-shadow: var(--s-box-shadow) var(--c-grey-dark);
   width: calc(100% - 4px);
   overflow: hidden;
 
   transition: box-shadow 0.1s ease, transform 0.1s ease,
     background-color 0.1s ease;
+
+  &:hover {
+    box-shadow: var(--s-box-shadow-hover) var(--c-grey-dark);
+    transform: var(--s-transform-hover);
+  }
+
+  &:active {
+    box-shadow: var(--s-box-shadow-click) var(--c-grey-dark);
+    transform: var(--s-transform-click);
+  }
 
   @media screen and (min-width: #{$mobile-up}) {
     max-width: 375px;
@@ -39,13 +49,13 @@
 
     > *:not(img) {
       display: block;
-      padding: 16px;
+      padding: var(--s-space-4);
       margin: 0;
     }
   }
 
   &__body {
-    padding: 16px;
+    padding: var(--s-space-4);
   }
 
   &__footer {
@@ -59,7 +69,7 @@
     flex: 1 1 auto;
     color: var(--c-black-pure);
     display: inline-block;
-    padding: 8px 16px;
+    padding: var(--s-space-2) var(--s-space-4);
     width: 100%;
     text-align: center;
     text-decoration: none;
@@ -82,6 +92,14 @@
     background-color: var(--c-black);
     border-color: var(--c-smoke);
     box-shadow: var(--s-box-shadow) var(--c-white);
+
+    &:hover {
+      box-shadow: var(--s-box-shadow-hover) var(--c-white);
+    }
+
+    &:active {
+      box-shadow: var(--s-box-shadow-click) var(--c-white);
+    }
 
     &__header {
       background-color: var(--c-grey-dark);

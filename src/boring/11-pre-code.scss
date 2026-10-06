@@ -1,11 +1,11 @@
 code,
 pre {
   border-radius: var(--s-border-radius);
-  font-family: "Source Code Pro", monospace;
+  font-family: var(--font-family-mono);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.5;
-  margin: 0 0 8px;
+  margin: 0 0 var(--s-space-2);
 }
 
 code {
@@ -25,9 +25,9 @@ pre {
   border: var(--s-border-width) solid var(--c-grey-dark);
   box-shadow: var(--s-box-shadow) var(--c-grey-dark);
   color: var(--c-white);
-  display: inline-block;
+  display: block;
   overflow: hidden;
-  padding: 48px 12px 8px;
+  padding: calc(var(--s-space-6) * 1.5) var(--s-space-3) var(--s-space-2);
   width: calc(100% - 4px);
   white-space: pre-wrap;
 
@@ -37,15 +37,69 @@ pre {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 0 4px;
+    padding: 0 var(--s-space-1);
     width: 100%;
     background-color: var(--c-background-disabled);
     border-bottom: var(--s-border-width) solid var(--c-grey-dark);
     color: var(--c-grey-dark);
-    font-family: monospace;
+    font-family: var(--font-family-mono);
     font-size: 16px;
     font-weight: 800;
     letter-spacing: var(--s-border-width);
+  }
+}
+
+/* Prism wraps the code in a `<code class="language-*">`. Reset the inline `code`
+   look so it adds no box of its own, then color the tokens. The code box is dark
+   in both modes, so the token colors use the light tints of the palette, which
+   stay readable on both --c-grey and --c-grey-dark. */
+pre > code {
+  display: block;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  color: inherit;
+}
+
+pre {
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: var(--c-grey-light);
+  }
+
+  .token.punctuation {
+    color: var(--c-smoke);
+  }
+
+  .token.tag,
+  .token.keyword,
+  .token.selector,
+  .token.atrule,
+  .token.rule,
+  .token.boolean,
+  .token.important {
+    color: var(--c-info-background);
+  }
+
+  .token.attr-name,
+  .token.property,
+  .token.function,
+  .token.class-name,
+  .token.operator,
+  .token.number,
+  .token.unit {
+    color: var(--c-warning-background);
+  }
+
+  .token.attr-value,
+  .token.string,
+  .token.char,
+  .token.regex,
+  .token.url,
+  .token.entity {
+    color: var(--c-success-background);
   }
 }
 

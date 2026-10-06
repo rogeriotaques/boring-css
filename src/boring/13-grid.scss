@@ -1,0 +1,97 @@
+@use "00-variables" as *;
+
+/* A 12 column grid on CSS Grid, not floats and not percentage widths.
+   `minmax(0, 1fr)` is what stops a long word or a wide child from pushing a
+   column past its share, which is what made the old grid overflow on resize. */
+
+.container {
+  width: 90%;
+  margin-inline: auto;
+
+  @media screen and (min-width: $mobile-up) {
+    width: 80%;
+  }
+
+  @media screen and (min-width: $desktop-up) {
+    width: 75%;
+    max-width: 60rem;
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--s-grid-gutter);
+}
+
+/* Direct children only, so a stray `col-` class nested deeper cannot be pulled
+   into the grid by accident. Attribute selector so any class order works,
+   unlike the `^=` selector this replaces. */
+.row > [class*='col-'] {
+  grid-column: span 12;
+}
+
+/* Mobile first: every column is full width until the tablet breakpoint.
+   Same specificity as the stacked default, and always emitted after it, so
+   source order decides and no `!important` is needed. */
+@media screen and (min-width: $tablet-up) {
+  @for $i from 1 through 12 {
+    .row > .col-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+/* Always this width, at every breakpoint. */
+@for $i from 1 through 12 {
+  .row > .col-#{$i}-sm {
+    grid-column: span #{$i};
+  }
+}
+
+@media screen and (min-width: $desktop-up) {
+  @for $i from 1 through 12 {
+    .row > .col-#{$i}-md {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+@media screen and (min-width: $widescreen-up) {
+  @for $i from 1 through 12 {
+    .row > .col-#{$i}-lg {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+/* Visibility utilities.
+   `revert` hands the display back to the browser default instead of forcing
+   `block`, so putting one of these on a button or a flex child keeps its own
+   display value. The old `display: block` broke every component it touched. */
+
+.hide-mobile,
+.hide-tablet,
+.hide-desktop {
+  display: none !important;
+}
+
+@media screen and (min-width: $tablet-up) {
+  .hide-mobile {
+    display: revert !important;
+  }
+
+  .hide-tablet {
+    display: revert !important;
+  }
+}
+
+@media screen and (min-width: $desktop-up) {
+  .hide-tablet {
+    display: none !important;
+  }
+
+  .hide-desktop {
+    display: revert !important;
+  }
+}

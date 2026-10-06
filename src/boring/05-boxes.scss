@@ -1,10 +1,10 @@
 .box {
-  display: inline-block;
+  display: block;
   background-color: var(--c-white);
   border: var(--s-border-width) solid var(--c-grey-dark);
-  border-radius: 8px;
-  padding: 16px;
-  margin: 0 0 8px;
+  border-radius: var(--s-border-radius);
+  padding: var(--s-space-4);
+  margin: 0 0 var(--s-space-2);
   box-shadow: var(--s-box-shadow) var(--c-grey-dark);
   width: calc(100% - 4px);
 }

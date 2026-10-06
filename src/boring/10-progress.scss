@@ -11,7 +11,7 @@
 
 .progress {
   position: relative;
-  display: inline-block;
+  display: block;
   background-color: transparent;
   border: var(--s-border-width) solid var(--c-grey-dark);
   border-radius: var(--s-border-radius);
@@ -19,11 +19,14 @@
   line-height: 28px;
   width: calc(100% - 4px);
   height: 36px;
-  padding: var(--s-border-width) 8px;
-  margin: 0 0 8px;
+  padding: var(--s-border-width) var(--s-space-2);
+  margin: 0 0 var(--s-space-2);
   overflow: hidden;
   font-weight: 700;
-  z-index: 3;
+
+  /* Only enough to give ::before a stacking context of its own, so the fill
+     sits behind the label without lifting the bar above other components. */
+  z-index: 0;
 
   &::before {
     content: "";

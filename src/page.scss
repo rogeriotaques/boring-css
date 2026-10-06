@@ -5,10 +5,10 @@ body {
   padding: 0;
 }
 
+/* Width and centering now come from the library `.container` in 13-grid.scss.
+   The demo only adds its own padding. */
 .container {
-  display: block;
-  margin: 0 auto;
-  padding: 16px 24px;
+  padding: var(--s-space-4) var(--s-space-5);
 }
 
 .title {
@@ -40,10 +40,6 @@ section {
     &-right {
       float: right;
     }
-  }
-
-  &-hidden {
-    display: none;
   }
 }
 

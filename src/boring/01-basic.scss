@@ -1,7 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Source+Code+Pro:wght@500;800&display=swap');
 
 :root {
   color-scheme: light dark;
+
+  /* Font families */
+  --font-family-base: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-family-heading: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-family-mono: 'Source Code Pro', ui-monospace, 'SFMono-Regular', monospace;
 
   /* Natural colors */
   --c-background: #f6f6f6;
@@ -30,7 +35,17 @@
   /* Sizes */
   --s-border-width: 2px;
   --s-border-width-thin: 1px;
+  --s-border-width-thick: 3px;
   --s-border-radius: 8px;
+  --s-grid-gutter: var(--s-space-3);
+
+  /* Spacing */
+  --s-space-1: 4px;
+  --s-space-2: 8px;
+  --s-space-3: 12px;
+  --s-space-4: 16px;
+  --s-space-5: 24px;
+  --s-space-6: 32px;
 
   --s-box-shadow: 4px 4px 0;
   --s-box-shadow-hover: 2px 2px 0;
@@ -42,7 +57,7 @@
 
 * {
   color: var(--c-black-pure);
-  font-family: sans-serif;
+  font-family: var(--font-family-base);
   font-size: 100%;
   line-height: 1.4;
 
@@ -77,26 +92,28 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Family', serif;
+  font-family: var(--font-family-heading);
   font-weight: 700;
   font-size: 150%;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 hr {
   border: 0;
   border-top: var(--s-border-width) solid var(--c-border);
-  margin: 16px 8px;
+  margin: var(--s-space-4) var(--s-space-2);
   height: 0;
   width: 100%;
 }
 
 ul,
 ol {
-  margin: 0 0 16px 8px;
+  margin: 0 0 var(--s-space-4) var(--s-space-2);
   padding: 0;
 
   li {
-    margin: 0 0 0 24px;
+    margin: 0 0 0 var(--s-space-5);
     padding: 0;
   }
 }
@@ -104,6 +121,27 @@ ol {
 blockquote {
   margin: 0;
   padding: 0;
+}
+
+/* Utilities */
+
+/* Used by boring.js to swap the dark and light mode icons. It must live in the
+   library, not in the demo stylesheet, or consumers lose the icons. */
+.is-hidden {
+  display: none !important;
+}
+
+/* Replaces the `outline: none` that components set on buttons and fields. The
+   element selectors keep this winning over a single class, whatever the
+   stylesheet order is. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: var(--s-border-width) solid var(--c-info);
+  outline-offset: var(--s-space-1);
 }
 
 figure {
@@ -127,7 +165,7 @@ table {
   th,
   td {
     text-align: left;
-    padding: calc(var(--s-border-width) * 2) calc(var(--s-border-width) * 6);
+    padding: var(--s-space-1) var(--s-space-3);
   }
 
   th {

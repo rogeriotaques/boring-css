@@ -1,6 +1,6 @@
 a:not(.button):not(.card__link) {
   border: 0;
-  border-bottom: 1px solid var(--c-grey-dark);
+  border-bottom: var(--s-border-width-thin) solid var(--c-grey-dark);
   color: var(--c-grey-dark);
   font-size: initial;
   font-weight: 700;
@@ -43,7 +43,7 @@ a:not(.button):not(.card__link) {
       opacity: 0.8;
     }
 
-    :hover {
+    &:hover {
       border-bottom-color: var(--c-success);
     }
   }

@@ -4,8 +4,8 @@
   background-color: var(--c-white);
   border: var(--s-border-width-thin) solid var(--c-grey);
   border-radius: var(--s-border-radius);
-  padding: 4px 8px;
-  margin: 0 4px 8px 0;
+  padding: var(--s-space-1) var(--s-space-2);
+  margin: 0 var(--s-space-1) var(--s-space-2) 0;
   min-width: 65px;
   text-align: center;
   cursor: default;
@@ -13,13 +13,13 @@
   font-weight: 400;
 
   &--success {
-    color: var(--c-white);
+    color: var(--c-black);
     background-color: var(--c-success);
     border-color: var(--c-success);
   }
 
   &--warning {
-    color: var(--c-white);
+    color: var(--c-black);
     background-color: var(--c-warning);
     border-color: var(--c-warning);
   }
@@ -40,10 +40,10 @@
 [data-mode="dark"] .badge {
   color: var(--c-smoke);
   background-color: var(--c-black);
-  border: var(--s-border-width) solid var(--c-white);
+  border: var(--s-border-width-thin) solid var(--c-white);
 
   &--success {
-    color: var(--c-success);
+    color: var(--c-black);
     background-color: var(--c-success-background);
     border-color: var(--c-success);
   }

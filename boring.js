@@ -72,20 +72,22 @@
 
   const tooltips = document.querySelectorAll('.has-tooltip');
 
+  const POSITION_CLASS_NAMES = ['has-tooltip--left', 'has-tooltip--right', 'has-tooltip--top', 'has-tooltip--bottom'];
+
   const handleTooltip = () => {
     tooltips.forEach(tooltip => {
-      const posClassNames = ['has-tooltip--left', 'has-tooltip--right', 'has-tooltip-top', 'has-tooltip-bottom'];
-      const curPosClassName = `${tooltip.classList}`
+      const oriPos = `${tooltip.classList}`
         .split(' ')
-        .filter(name => posClassNames.contains(name))
+        .filter(name => POSITION_CLASS_NAMES.includes(name))
         .join(' ')
         .trim();
 
-      tooltip.setAttribute('data-position', curPosClassName);
+      if (!oriPos) return;
+
+      tooltip.setAttribute('data-position', oriPos);
 
       tooltip.addEventListener('mouseenter', () => {
         const curPos = tooltip.getBoundingClientRect();
-        const oriPos = tooltip.getAttribute('data-position');
 
         if (oriPos === 'has-tooltip--top' && Math.ceil(curPos.top - 55) <= 0) {
           tooltip.classList.replace('has-tooltip--top', 'has-tooltip--bottom');

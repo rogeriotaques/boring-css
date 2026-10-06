@@ -1,15 +1,15 @@
 .input {
   $class: &;
 
-  margin-bottom: 12px;
+  margin-bottom: var(--s-space-3);
 
   > [type="number"] {
     -moz-appearance: textfield;
-  }
 
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
   }
 
   > input,
@@ -20,8 +20,8 @@
     border: var(--s-border-width) solid var(--c-grey-dark);
     border-radius: var(--s-border-radius);
     box-shadow: var(--s-box-shadow) var(--c-grey-dark);
-    padding: 8px 16px;
-    margin: 0 0 8px;
+    padding: var(--s-space-2) var(--s-space-4);
+    margin: 0 0 var(--s-space-2);
     width: calc(100% - 4px);
     outline: none;
 
@@ -38,11 +38,11 @@
   > select {
     background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>")
       no-repeat;
-    background-position: calc(100% - 0.75rem) center !important;
+    background-position: calc(100% - var(--s-space-3)) center !important;
     -moz-appearance: none !important;
     -webkit-appearance: none !important;
     appearance: none !important;
-    padding-right: 2rem !important;
+    padding-right: var(--s-space-6) !important;
   }
 
   &--success {
@@ -74,67 +74,89 @@
       display: block;
       font-size: 16px;
       color: var(--c-grey);
-      font-family: "Family", serif;
-      padding: 4px;
+      font-family: var(--font-family-heading);
+      padding: var(--s-space-1);
       margin: 0;
     }
 
     > label {
       display: block;
       color: var(--c-grey);
-      margin-bottom: 4px;
+      margin-bottom: var(--s-space-1);
+    }
+  }
+
+  /* The group carries the shadow and the children carry none. Overlapping the
+     children with a negative margin made every member's 4px shadow land on its
+     neighbour, and only the outer corners are rounded now, so nothing has to
+     overlap at all. */
+  &--with-addons,
+  &--grouped {
+    display: flex;
+    align-items: stretch;
+    /* The group draws the shadow, so it needs the radius too or the shadow is a
+       square box that pokes past the rounded outer corners of the fields. */
+    border-radius: var(--s-border-radius);
+    box-shadow: var(--s-box-shadow) var(--c-grey-dark);
+
+    > input,
+    > textarea,
+    > select,
+    > .input__addon {
+      flex: 0 1 auto;
+
+      /* Flex items default to min-width: auto, which refuses to shrink below the
+         content and pushes the row wider than its container. The full `margin`
+         reset also clears the `<p>` default `1em 0` on the addon. */
+      min-width: 0;
+      margin: 0;
+      box-shadow: none;
     }
   }
 
   &--with-addons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    > input,
+    > textarea,
+    > select {
+      flex: 1 1 auto;
+    }
 
     > .input__addon {
+      flex: 0 0 auto;
       display: block;
       background-color: var(--c-background-disabled);
-      box-shadow: var(--s-box-shadow) var(--c-grey-dark);
       border: var(--s-border-width) solid var(--c-grey-dark);
       border-radius: var(--s-border-radius);
       text-shadow: 1px 1px 3px var(--c-white);
       color: var(--c-grey);
       font-weight: 400;
       text-align: center;
-      padding: 8px 16px;
-      margin: 0 0 8px;
+      padding: var(--s-space-2) var(--s-space-4);
       width: fit-content;
-    }
-
-    > *:not(:first-child) {
-      border-radius: 0 8px 8px 0;
-      margin-left: -8px;
     }
   }
 
   &--grouped {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     > input {
-      flex: 1 1 auto;
+      /* Basis 0, so the fields share the row evenly instead of each asking for
+         the full `width` they inherit from the base rule. */
+      flex: 1 1 0;
+    }
+  }
 
-      &:first-child {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
+  /* Outer corners only. This block comes last so it also wins the tie against
+     the `.input__addon` radius above, which would otherwise round the corner
+     that meets the field and leave a notch. */
+  &--with-addons,
+  &--grouped {
+    > :not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
 
-      &:not(:first-child):not(:last-child) {
-        border-radius: 0;
-        margin-left: calc(var(--s-border-width) * -1);
-      }
-
-      &:last-child {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        margin-left: calc(var(--s-border-width) * -1);
-      }
+    > :not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
   }
 
@@ -142,8 +164,8 @@
   &--radio {
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 8px;
+    gap: var(--s-space-4);
+    margin-bottom: var(--s-space-2);
     line-height: 1.5;
 
     > input {
@@ -205,11 +227,22 @@
       }
     }
 
+    &--with-addons,
+    &--grouped {
+      box-shadow: var(--s-box-shadow) var(--c-white);
+
+      > input,
+      > textarea,
+      > select,
+      > .input__addon {
+        box-shadow: none;
+      }
+    }
+
     &--with-addons > .input__addon {
       color: var(--c-grey-light);
       background-color: var(--c-black);
       text-shadow: 1px 1px 3px var(--c-black-pure);
-      box-shadow: var(--s-box-shadow) 0 var(--c-white);
       border: var(--s-border-width) solid var(--c-smoke);
     }
 

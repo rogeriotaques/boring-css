@@ -7,9 +7,13 @@
 */
 
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Source+Code+Pro:wght@500;800&display=swap");
 :root {
   color-scheme: light dark;
+  /* Font families */
+  --font-family-base: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-family-heading: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-family-mono: "Source Code Pro", ui-monospace, "SFMono-Regular", monospace;
   /* Natural colors */
   --c-background: #f6f6f6;
   --c-background-active: #e9e9e9;
@@ -35,7 +39,16 @@
   /* Sizes */
   --s-border-width: 2px;
   --s-border-width-thin: 1px;
+  --s-border-width-thick: 3px;
   --s-border-radius: 8px;
+  --s-grid-gutter: var(--s-space-3);
+  /* Spacing */
+  --s-space-1: 4px;
+  --s-space-2: 8px;
+  --s-space-3: 12px;
+  --s-space-4: 16px;
+  --s-space-5: 24px;
+  --s-space-6: 32px;
   --s-box-shadow: 4px 4px 0;
   --s-box-shadow-hover: 2px 2px 0;
   --s-box-shadow-click: 0 0 0;
@@ -45,7 +58,7 @@
 
 * {
   color: var(--c-black-pure);
-  font-family: sans-serif;
+  font-family: var(--font-family-base);
   font-size: 100%;
   line-height: 1.4;
 }
@@ -73,33 +86,55 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Family", serif;
+  font-family: var(--font-family-heading);
   font-weight: 700;
   font-size: 150%;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 hr {
   border: 0;
   border-top: var(--s-border-width) solid var(--c-border);
-  margin: 16px 8px;
+  margin: var(--s-space-4) var(--s-space-2);
   height: 0;
   width: 100%;
 }
 
 ul,
 ol {
-  margin: 0 0 16px 8px;
+  margin: 0 0 var(--s-space-4) var(--s-space-2);
   padding: 0;
 }
 ul li,
 ol li {
-  margin: 0 0 0 24px;
+  margin: 0 0 0 var(--s-space-5);
   padding: 0;
 }
 
 blockquote {
   margin: 0;
   padding: 0;
+}
+
+/* Utilities */
+/* Used by boring.js to swap the dark and light mode icons. It must live in the
+   library, not in the demo stylesheet, or consumers lose the icons. */
+.is-hidden {
+  display: none !important;
+}
+
+/* Replaces the `outline: none` that components set on buttons and fields. The
+   element selectors keep this winning over a single class, whatever the
+   stylesheet order is. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: var(--s-border-width) solid var(--c-info);
+  outline-offset: var(--s-space-1);
 }
 
 figure {
@@ -120,7 +155,7 @@ table {
 table th,
 table td {
   text-align: left;
-  padding: calc(var(--s-border-width) * 2) calc(var(--s-border-width) * 6);
+  padding: var(--s-space-1) var(--s-space-3);
 }
 table th {
   border-bottom: var(--s-border-width) solid var(--c-border);
@@ -149,7 +184,7 @@ table tbody > tr:hover {
 
 a:not(.button):not(.card__link) {
   border: 0;
-  border-bottom: 1px solid var(--c-grey-dark);
+  border-bottom: var(--s-border-width-thin) solid var(--c-grey-dark);
   color: var(--c-grey-dark);
   font-size: initial;
   font-weight: 700;
@@ -185,42 +220,34 @@ a:not(.button):not(.card__link):hover::before {
   background-color: var(--c-success);
   opacity: 0.8;
 }
-[data-mode=dark] a:not(.button):not(.card__link) :hover {
+[data-mode=dark] a:not(.button):not(.card__link):hover {
   border-bottom-color: var(--c-success);
 }
 
 img:not(.icon) {
-  position: relative;
   max-width: 100%;
   display: inline-block;
   background-color: var(--c-white);
   border: var(--s-border-width) solid var(--c-grey-dark);
   border-radius: var(--s-border-radius);
   box-shadow: var(--s-box-shadow) var(--c-grey-dark);
-  margin: 8px;
+  margin: var(--s-space-2);
   vertical-align: middle;
-  z-index: 2;
 }
 img:not(.icon).avatar {
   border-radius: 50%;
+  /* Grouped avatars must overlap. The offset has to exceed the base 8px
+     margin to cancel it, so it is fixed rather than a percentage of the
+     container, which would widen the overlap on larger screens. */
 }
 img:not(.icon).avatar + .avatar {
-  margin-left: -5%;
+  margin-left: calc(var(--s-space-6) * -1);
 }
 
 [data-mode=dark] img:not(.icon) {
   background-color: var(--c-grey-dark);
   border-color: var(--c-white);
-  border-radius: var(--s-border-radius);
   box-shadow: var(--s-box-shadow) var(--c-white);
-  margin: 8px;
-  vertical-align: middle;
-}
-[data-mode=dark] img:not(.icon).avatar {
-  border-radius: 50%;
-}
-[data-mode=dark] img:not(.icon).avatar + .avatar {
-  margin-left: -5%;
 }
 
 .badge {
@@ -229,8 +256,8 @@ img:not(.icon).avatar + .avatar {
   background-color: var(--c-white);
   border: var(--s-border-width-thin) solid var(--c-grey);
   border-radius: var(--s-border-radius);
-  padding: 4px 8px;
-  margin: 0 4px 8px 0;
+  padding: var(--s-space-1) var(--s-space-2);
+  margin: 0 var(--s-space-1) var(--s-space-2) 0;
   min-width: 65px;
   text-align: center;
   cursor: default;
@@ -238,12 +265,12 @@ img:not(.icon).avatar + .avatar {
   font-weight: 400;
 }
 .badge--success {
-  color: var(--c-white);
+  color: var(--c-black);
   background-color: var(--c-success);
   border-color: var(--c-success);
 }
 .badge--warning {
-  color: var(--c-white);
+  color: var(--c-black);
   background-color: var(--c-warning);
   border-color: var(--c-warning);
 }
@@ -261,10 +288,10 @@ img:not(.icon).avatar + .avatar {
 [data-mode=dark] .badge {
   color: var(--c-smoke);
   background-color: var(--c-black);
-  border: var(--s-border-width) solid var(--c-white);
+  border: var(--s-border-width-thin) solid var(--c-white);
 }
 [data-mode=dark] .badge--success {
-  color: var(--c-success);
+  color: var(--c-black);
   background-color: var(--c-success-background);
   border-color: var(--c-success);
 }
@@ -285,12 +312,12 @@ img:not(.icon).avatar + .avatar {
 }
 
 .box {
-  display: inline-block;
+  display: block;
   background-color: var(--c-white);
   border: var(--s-border-width) solid var(--c-grey-dark);
-  border-radius: 8px;
-  padding: 16px;
-  margin: 0 0 8px;
+  border-radius: var(--s-border-radius);
+  padding: var(--s-space-4);
+  margin: 0 0 var(--s-space-2);
   box-shadow: var(--s-box-shadow) var(--c-grey-dark);
   width: calc(100% - 4px);
 }
@@ -306,14 +333,14 @@ button,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: var(--s-space-2);
   background-color: var(--c-white);
   border: var(--s-border-width) solid var(--c-grey-dark);
   border-radius: var(--s-border-radius);
   box-shadow: var(--s-box-shadow) var(--c-grey-dark);
   color: var(--c-grey-dark);
-  padding: 8px 16px;
-  margin: 0 4px 8px 0;
+  padding: var(--s-space-2) var(--s-space-4);
+  margin: 0 var(--s-space-1) var(--s-space-2) 0;
   font-weight: 600;
   min-width: 145px;
   text-align: center;
@@ -406,15 +433,23 @@ button > .icon,
 
 /* Breakpoints */
 .card {
-  display: inline-block;
+  display: block;
   background-color: var(--c-white);
   border: var(--s-border-width) solid var(--c-grey-dark);
   border-radius: var(--s-border-radius);
-  margin: 0 0 8px;
+  margin: 0 0 var(--s-space-2);
   box-shadow: var(--s-box-shadow) var(--c-grey-dark);
   width: calc(100% - 4px);
   overflow: hidden;
   transition: box-shadow 0.1s ease, transform 0.1s ease, background-color 0.1s ease;
+}
+.card:hover {
+  box-shadow: var(--s-box-shadow-hover) var(--c-grey-dark);
+  transform: var(--s-transform-hover);
+}
+.card:active {
+  box-shadow: var(--s-box-shadow-click) var(--c-grey-dark);
+  transform: var(--s-transform-click);
 }
 @media screen and (min-width: 480px) {
   .card {
@@ -441,11 +476,11 @@ button > .icon,
 }
 .card__header > *:not(img) {
   display: block;
-  padding: 16px;
+  padding: var(--s-space-4);
   margin: 0;
 }
 .card__body {
-  padding: 16px;
+  padding: var(--s-space-4);
 }
 .card__footer {
   display: flex;
@@ -457,7 +492,7 @@ button > .icon,
   flex: 1 1 auto;
   color: var(--c-black-pure);
   display: inline-block;
-  padding: 8px 16px;
+  padding: var(--s-space-2) var(--s-space-4);
   width: 100%;
   text-align: center;
   text-decoration: none;
@@ -475,6 +510,12 @@ button > .icon,
   background-color: var(--c-black);
   border-color: var(--c-smoke);
   box-shadow: var(--s-box-shadow) var(--c-white);
+}
+[data-mode=dark] .card:hover {
+  box-shadow: var(--s-box-shadow-hover) var(--c-white);
+}
+[data-mode=dark] .card:active {
+  box-shadow: var(--s-box-shadow-click) var(--c-white);
 }
 [data-mode=dark] .card__header {
   background-color: var(--c-grey-dark);
@@ -494,12 +535,19 @@ button > .icon,
 }
 
 .input {
-  margin-bottom: 12px;
+  margin-bottom: var(--s-space-3);
+  /* The group carries the shadow and the children carry none. Overlapping the
+     children with a negative margin made every member's 4px shadow land on its
+     neighbour, and only the outer corners are rounded now, so nothing has to
+     overlap at all. */
+  /* Outer corners only. This block comes last so it also wins the tie against
+     the `.input__addon` radius above, which would otherwise round the corner
+     that meets the field and leave a notch. */
 }
 .input > [type=number] {
   -moz-appearance: textfield;
 }
-.input::-webkit-outer-spin-button, .input::-webkit-inner-spin-button {
+.input > [type=number]::-webkit-outer-spin-button, .input > [type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 .input > input,
@@ -510,8 +558,8 @@ button > .icon,
   border: var(--s-border-width) solid var(--c-grey-dark);
   border-radius: var(--s-border-radius);
   box-shadow: var(--s-box-shadow) var(--c-grey-dark);
-  padding: 8px 16px;
-  margin: 0 0 8px;
+  padding: var(--s-space-2) var(--s-space-4);
+  margin: 0 0 var(--s-space-2);
   width: calc(100% - 4px);
   outline: none;
 }
@@ -526,11 +574,11 @@ button > .icon,
 }
 .input > select {
   background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") no-repeat;
-  background-position: calc(100% - 0.75rem) center !important;
+  background-position: calc(100% - var(--s-space-3)) center !important;
   -moz-appearance: none !important;
   -webkit-appearance: none !important;
   appearance: none !important;
-  padding-right: 2rem !important;
+  padding-right: var(--s-space-6) !important;
 }
 .input--success > input,
 .input--success > textarea {
@@ -551,64 +599,74 @@ button > .icon,
   display: block;
   font-size: 16px;
   color: var(--c-grey);
-  font-family: "Family", serif;
-  padding: 4px;
+  font-family: var(--font-family-heading);
+  padding: var(--s-space-1);
   margin: 0;
 }
 .input--with-helpers > label {
   display: block;
   color: var(--c-grey);
-  margin-bottom: 4px;
+  margin-bottom: var(--s-space-1);
 }
-.input--with-addons {
+.input--with-addons, .input--grouped {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  /* The group draws the shadow, so it needs the radius too or the shadow is a
+     square box that pokes past the rounded outer corners of the fields. */
+  border-radius: var(--s-border-radius);
+  box-shadow: var(--s-box-shadow) var(--c-grey-dark);
+}
+.input--with-addons > input,
+.input--with-addons > textarea,
+.input--with-addons > select,
+.input--with-addons > .input__addon, .input--grouped > input,
+.input--grouped > textarea,
+.input--grouped > select,
+.input--grouped > .input__addon {
+  flex: 0 1 auto;
+  /* Flex items default to min-width: auto, which refuses to shrink below the
+     content and pushes the row wider than its container. The full `margin`
+     reset also clears the `<p>` default `1em 0` on the addon. */
+  min-width: 0;
+  margin: 0;
+  box-shadow: none;
+}
+.input--with-addons > input,
+.input--with-addons > textarea,
+.input--with-addons > select {
+  flex: 1 1 auto;
 }
 .input--with-addons > .input__addon {
+  flex: 0 0 auto;
   display: block;
   background-color: var(--c-background-disabled);
-  box-shadow: var(--s-box-shadow) var(--c-grey-dark);
   border: var(--s-border-width) solid var(--c-grey-dark);
   border-radius: var(--s-border-radius);
   text-shadow: 1px 1px 3px var(--c-white);
   color: var(--c-grey);
   font-weight: 400;
   text-align: center;
-  padding: 8px 16px;
-  margin: 0 0 8px;
+  padding: var(--s-space-2) var(--s-space-4);
   width: fit-content;
 }
-.input--with-addons > *:not(:first-child) {
-  border-radius: 0 8px 8px 0;
-  margin-left: -8px;
-}
-.input--grouped {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 .input--grouped > input {
-  flex: 1 1 auto;
+  /* Basis 0, so the fields share the row evenly instead of each asking for
+     the full `width` they inherit from the base rule. */
+  flex: 1 1 0;
 }
-.input--grouped > input:first-child {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.input--grouped > input:not(:first-child):not(:last-child) {
-  border-radius: 0;
-  margin-left: calc(var(--s-border-width) * -1);
-}
-.input--grouped > input:last-child {
+.input--with-addons > :not(:first-child), .input--grouped > :not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  margin-left: calc(var(--s-border-width) * -1);
+}
+.input--with-addons > :not(:last-child), .input--grouped > :not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .input--checkbox, .input--radio {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 8px;
+  gap: var(--s-space-4);
+  margin-bottom: var(--s-space-2);
   line-height: 1.5;
 }
 .input--checkbox > input, .input--radio > input {
@@ -649,11 +707,22 @@ button > .icon,
 [data-mode=dark] .input--with-helpers > label {
   color: var(--c-grey-light);
 }
+[data-mode=dark] .input--with-addons, [data-mode=dark] .input--grouped {
+  box-shadow: var(--s-box-shadow) var(--c-white);
+}
+[data-mode=dark] .input--with-addons > input,
+[data-mode=dark] .input--with-addons > textarea,
+[data-mode=dark] .input--with-addons > select,
+[data-mode=dark] .input--with-addons > .input__addon, [data-mode=dark] .input--grouped > input,
+[data-mode=dark] .input--grouped > textarea,
+[data-mode=dark] .input--grouped > select,
+[data-mode=dark] .input--grouped > .input__addon {
+  box-shadow: none;
+}
 [data-mode=dark] .input--with-addons > .input__addon {
   color: var(--c-grey-light);
   background-color: var(--c-black);
   text-shadow: 1px 1px 3px var(--c-black-pure);
-  box-shadow: var(--s-box-shadow) 0 var(--c-white);
   border: var(--s-border-width) solid var(--c-smoke);
 }
 [data-mode=dark] .input--checkbox > input, [data-mode=dark] .input--radio > input {
@@ -661,22 +730,22 @@ button > .icon,
 }
 
 .notification {
-  display: inline-block;
+  display: block;
   color: var(--c-smoke);
   background-color: var(--c-grey-dark);
   border: var(--s-border-width) solid var(--c-grey-dark);
   border-radius: var(--s-border-radius);
-  padding: 8px 16px;
-  margin: 0 0 8px;
+  padding: var(--s-space-2) var(--s-space-4);
+  margin: 0 0 var(--s-space-2);
   width: calc(100% - 4px);
 }
 .notification--success {
-  color: var(--c-white);
+  color: var(--c-black);
   background-color: var(--c-success);
   border-color: var(--c-success);
 }
 .notification--warning {
-  color: var(--c-white);
+  color: var(--c-black);
   background-color: var(--c-warning);
   border-color: var(--c-warning);
 }
@@ -727,7 +796,7 @@ button > .icon,
 }
 .progress {
   position: relative;
-  display: inline-block;
+  display: block;
   background-color: transparent;
   border: var(--s-border-width) solid var(--c-grey-dark);
   border-radius: var(--s-border-radius);
@@ -735,11 +804,13 @@ button > .icon,
   line-height: 28px;
   width: calc(100% - 4px);
   height: 36px;
-  padding: var(--s-border-width) 8px;
-  margin: 0 0 8px;
+  padding: var(--s-border-width) var(--s-space-2);
+  margin: 0 0 var(--s-space-2);
   overflow: hidden;
   font-weight: 700;
-  z-index: 3;
+  /* Only enough to give ::before a stacking context of its own, so the fill
+     sits behind the label without lifting the bar above other components. */
+  z-index: 0;
 }
 .progress::before {
   content: "";
@@ -1083,11 +1154,11 @@ button > .icon,
 code,
 pre {
   border-radius: var(--s-border-radius);
-  font-family: "Source Code Pro", monospace;
+  font-family: var(--font-family-mono);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.5;
-  margin: 0 0 8px;
+  margin: 0 0 var(--s-space-2);
 }
 
 code {
@@ -1107,9 +1178,9 @@ pre {
   border: var(--s-border-width) solid var(--c-grey-dark);
   box-shadow: var(--s-box-shadow) var(--c-grey-dark);
   color: var(--c-white);
-  display: inline-block;
+  display: block;
   overflow: hidden;
-  padding: 48px 12px 8px;
+  padding: calc(var(--s-space-6) * 1.5) var(--s-space-3) var(--s-space-2);
   width: calc(100% - 4px);
   white-space: pre-wrap;
 }
@@ -1119,15 +1190,63 @@ pre::before {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 0 4px;
+  padding: 0 var(--s-space-1);
   width: 100%;
   background-color: var(--c-background-disabled);
   border-bottom: var(--s-border-width) solid var(--c-grey-dark);
   color: var(--c-grey-dark);
-  font-family: monospace;
+  font-family: var(--font-family-mono);
   font-size: 16px;
   font-weight: 800;
   letter-spacing: var(--s-border-width);
+}
+
+/* Prism wraps the code in a `<code class="language-*">`. Reset the inline `code`
+   look so it adds no box of its own, then color the tokens. The code box is dark
+   in both modes, so the token colors use the light tints of the palette, which
+   stay readable on both --c-grey and --c-grey-dark. */
+pre > code {
+  display: block;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  color: inherit;
+}
+
+pre .token.comment,
+pre .token.prolog,
+pre .token.doctype,
+pre .token.cdata {
+  color: var(--c-grey-light);
+}
+pre .token.punctuation {
+  color: var(--c-smoke);
+}
+pre .token.tag,
+pre .token.keyword,
+pre .token.selector,
+pre .token.atrule,
+pre .token.rule,
+pre .token.boolean,
+pre .token.important {
+  color: var(--c-info-background);
+}
+pre .token.attr-name,
+pre .token.property,
+pre .token.function,
+pre .token.class-name,
+pre .token.operator,
+pre .token.number,
+pre .token.unit {
+  color: var(--c-warning-background);
+}
+pre .token.attr-value,
+pre .token.string,
+pre .token.char,
+pre .token.regex,
+pre .token.url,
+pre .token.entity {
+  color: var(--c-success-background);
 }
 
 [data-mode=dark] code {
@@ -1156,10 +1275,10 @@ pre::before {
 .has-tooltip::before {
   opacity: 0;
   content: "";
-  top: -8px;
+  top: calc(var(--s-space-2) * -1);
   left: 50%;
   transform: translateX(-50%);
-  border-width: 8px 8px 0 8px;
+  border-width: var(--s-space-2) var(--s-space-2) 0 var(--s-space-2);
   border-style: solid;
   border-color: var(--c-grey-dark) transparent transparent transparent;
   z-index: 200;
@@ -1167,52 +1286,51 @@ pre::before {
 .has-tooltip::after {
   opacity: 0;
   content: attr(data-tooltip);
-  top: -8px;
+  top: calc(var(--s-space-2) * -1);
   left: 50%;
   background-color: var(--c-smoke);
   text-align: center;
   color: var(--c-grey-dark);
-  padding: 8px 16px;
+  padding: var(--s-space-2) var(--s-space-4);
   width: max-content;
   min-width: 120px;
   max-width: 240px;
-  border: 3px solid var(--c-grey-dark);
-  border-radius: 8px;
+  border: var(--s-border-width-thick) solid var(--c-grey-dark);
+  border-radius: var(--s-border-radius);
   transform: translateX(-50%) translateY(-100%);
   z-index: 300;
 }
 .has-tooltip--right::before {
   top: 50%;
   left: 100%;
-  margin-left: 0;
   transform: translateY(-50%) rotate(90deg);
 }
 .has-tooltip--right::after {
   top: 50%;
   left: 100%;
-  margin-left: 12px;
+  margin-left: var(--s-space-3);
   transform: translateX(0%) translateY(-50%);
 }
 .has-tooltip--bottom::before {
   top: 100%;
-  margin-top: 8px;
+  margin-top: var(--s-space-2);
   transform: translateX(-50%) translateY(-100%) rotate(-180deg);
 }
 .has-tooltip--bottom::after {
   top: 100%;
-  margin-top: 8px;
+  margin-top: var(--s-space-2);
   transform: translateX(-50%) translateY(0%);
 }
 .has-tooltip--left::before {
   top: 50%;
   left: 0%;
-  margin-left: -16px;
+  margin-left: calc(var(--s-space-4) * -1);
   transform: translateY(-50%) rotate(-90deg);
 }
 .has-tooltip--left::after {
   top: 50%;
   left: 0%;
-  margin-left: -12px;
+  margin-left: calc(var(--s-space-3) * -1);
   transform: translateX(-100%) translateY(-50%);
 }
 
@@ -1223,5 +1341,230 @@ pre::before {
   background-color: var(--c-grey-dark);
   border-color: var(--c-smoke);
   color: var(--c-smoke);
+}
+
+/* A 12 column grid on CSS Grid, not floats and not percentage widths.
+   `minmax(0, 1fr)` is what stops a long word or a wide child from pushing a
+   column past its share, which is what made the old grid overflow on resize. */
+.container {
+  width: 90%;
+  margin-inline: auto;
+}
+@media screen and (min-width: 480px) {
+  .container {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .container {
+    width: 75%;
+    max-width: 60rem;
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--s-grid-gutter);
+}
+
+/* Direct children only, so a stray `col-` class nested deeper cannot be pulled
+   into the grid by accident. Attribute selector so any class order works,
+   unlike the `^=` selector this replaces. */
+.row > [class*=col-] {
+  grid-column: span 12;
+}
+
+/* Mobile first: every column is full width until the tablet breakpoint.
+   Same specificity as the stacked default, and always emitted after it, so
+   source order decides and no `!important` is needed. */
+@media screen and (min-width: 768px) {
+  .row > .col-1 {
+    grid-column: span 1;
+  }
+  .row > .col-2 {
+    grid-column: span 2;
+  }
+  .row > .col-3 {
+    grid-column: span 3;
+  }
+  .row > .col-4 {
+    grid-column: span 4;
+  }
+  .row > .col-5 {
+    grid-column: span 5;
+  }
+  .row > .col-6 {
+    grid-column: span 6;
+  }
+  .row > .col-7 {
+    grid-column: span 7;
+  }
+  .row > .col-8 {
+    grid-column: span 8;
+  }
+  .row > .col-9 {
+    grid-column: span 9;
+  }
+  .row > .col-10 {
+    grid-column: span 10;
+  }
+  .row > .col-11 {
+    grid-column: span 11;
+  }
+  .row > .col-12 {
+    grid-column: span 12;
+  }
+}
+/* Always this width, at every breakpoint. */
+.row > .col-1-sm {
+  grid-column: span 1;
+}
+
+.row > .col-2-sm {
+  grid-column: span 2;
+}
+
+.row > .col-3-sm {
+  grid-column: span 3;
+}
+
+.row > .col-4-sm {
+  grid-column: span 4;
+}
+
+.row > .col-5-sm {
+  grid-column: span 5;
+}
+
+.row > .col-6-sm {
+  grid-column: span 6;
+}
+
+.row > .col-7-sm {
+  grid-column: span 7;
+}
+
+.row > .col-8-sm {
+  grid-column: span 8;
+}
+
+.row > .col-9-sm {
+  grid-column: span 9;
+}
+
+.row > .col-10-sm {
+  grid-column: span 10;
+}
+
+.row > .col-11-sm {
+  grid-column: span 11;
+}
+
+.row > .col-12-sm {
+  grid-column: span 12;
+}
+
+@media screen and (min-width: 1024px) {
+  .row > .col-1-md {
+    grid-column: span 1;
+  }
+  .row > .col-2-md {
+    grid-column: span 2;
+  }
+  .row > .col-3-md {
+    grid-column: span 3;
+  }
+  .row > .col-4-md {
+    grid-column: span 4;
+  }
+  .row > .col-5-md {
+    grid-column: span 5;
+  }
+  .row > .col-6-md {
+    grid-column: span 6;
+  }
+  .row > .col-7-md {
+    grid-column: span 7;
+  }
+  .row > .col-8-md {
+    grid-column: span 8;
+  }
+  .row > .col-9-md {
+    grid-column: span 9;
+  }
+  .row > .col-10-md {
+    grid-column: span 10;
+  }
+  .row > .col-11-md {
+    grid-column: span 11;
+  }
+  .row > .col-12-md {
+    grid-column: span 12;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .row > .col-1-lg {
+    grid-column: span 1;
+  }
+  .row > .col-2-lg {
+    grid-column: span 2;
+  }
+  .row > .col-3-lg {
+    grid-column: span 3;
+  }
+  .row > .col-4-lg {
+    grid-column: span 4;
+  }
+  .row > .col-5-lg {
+    grid-column: span 5;
+  }
+  .row > .col-6-lg {
+    grid-column: span 6;
+  }
+  .row > .col-7-lg {
+    grid-column: span 7;
+  }
+  .row > .col-8-lg {
+    grid-column: span 8;
+  }
+  .row > .col-9-lg {
+    grid-column: span 9;
+  }
+  .row > .col-10-lg {
+    grid-column: span 10;
+  }
+  .row > .col-11-lg {
+    grid-column: span 11;
+  }
+  .row > .col-12-lg {
+    grid-column: span 12;
+  }
+}
+/* Visibility utilities.
+   `revert` hands the display back to the browser default instead of forcing
+   `block`, so putting one of these on a button or a flex child keeps its own
+   display value. The old `display: block` broke every component it touched. */
+.hide-mobile,
+.hide-tablet,
+.hide-desktop {
+  display: none !important;
+}
+
+@media screen and (min-width: 768px) {
+  .hide-mobile {
+    display: revert !important;
+  }
+  .hide-tablet {
+    display: revert !important;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .hide-tablet {
+    display: none !important;
+  }
+  .hide-desktop {
+    display: revert !important;
+  }
 }
 /*# sourceMappingURL=boring.css.map */

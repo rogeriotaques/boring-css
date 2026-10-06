@@ -20,10 +20,10 @@
   &::before {
     opacity: 0;
     content: "";
-    top: -8px;
+    top: calc(var(--s-space-2) * -1);
     left: 50%;
     transform: translateX(-50%);
-    border-width: 8px 8px 0 8px;
+    border-width: var(--s-space-2) var(--s-space-2) 0 var(--s-space-2);
     border-style: solid;
     border-color: var(--c-grey-dark) transparent transparent transparent;
     z-index: 200;
@@ -32,17 +32,17 @@
   &::after {
     opacity: 0;
     content: attr(data-tooltip);
-    top: -8px;
+    top: calc(var(--s-space-2) * -1);
     left: 50%;
     background-color: var(--c-smoke);
     text-align: center;
     color: var(--c-grey-dark);
-    padding: 8px 16px;
+    padding: var(--s-space-2) var(--s-space-4);
     width: max-content;
     min-width: 120px;
     max-width: 240px;
-    border: 3px solid var(--c-grey-dark);
-    border-radius: 8px;
+    border: var(--s-border-width-thick) solid var(--c-grey-dark);
+    border-radius: var(--s-border-radius);
     transform: translateX(-50%) translateY(-100%);
     z-index: 300;
   }
@@ -51,14 +51,13 @@
     &::before {
       top: 50%;
       left: 100%;
-      margin-left: 0;
       transform: translateY(-50%) rotate(90deg);
     }
 
     &::after {
       top: 50%;
       left: 100%;
-      margin-left: 12px;
+      margin-left: var(--s-space-3);
       transform: translateX(0%) translateY(-50%);
     }
   }
@@ -66,13 +65,13 @@
   &--bottom {
     &::before {
       top: 100%;
-      margin-top: 8px;
+      margin-top: var(--s-space-2);
       transform: translateX(-50%) translateY(-100%) rotate(-180deg);
     }
 
     &::after {
       top: 100%;
-      margin-top: 8px;
+      margin-top: var(--s-space-2);
       transform: translateX(-50%) translateY(0%);
     }
   }
@@ -81,14 +80,14 @@
     &::before {
       top: 50%;
       left: 0%;
-      margin-left: -16px;
+      margin-left: calc(var(--s-space-4) * -1);
       transform: translateY(-50%) rotate(-90deg);
     }
 
     &::after {
       top: 50%;
       left: 0%;
-      margin-left: -12px;
+      margin-left: calc(var(--s-space-3) * -1);
       transform: translateX(-100%) translateY(-50%);
     }
   }
