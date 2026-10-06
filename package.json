@@ -1,5 +1,6 @@
 {
   "name": "boring-css",
+  "version": "2.0.1",
   "packageManager": "yarn@4.0.2",
   "dependencies": {
     "browser-sync": "^3.0.3",
